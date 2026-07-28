@@ -1,0 +1,72 @@
+{
+  "slug": "antes-y-despues",
+  "categoria": "Antes y Después",
+  "ancla": "antes-despues",
+  "titulo_articulo": "Antes y Después: Los Productos Detrás de las Transformaciones",
+  "meta_titulo": "Antes y Después: Transformaciones Reales del Hogar | OrganizaTuHogar",
+  "meta_descripcion": "Transformaciones reales de armarios y cocinas, paso a paso, y los productos de Amazon España que las hicieron posibles.",
+  "fecha_publicacion": "2026-07-05",
+  "fecha_modificacion": "2026-07-24",
+  "imagen_portada": "/images/antes-despues/portada.webp",
+  "portada_alt": "Comparativa antes y después de una despensa desordenada y otra ordenada",
+  "intro": "Las fotos de antes y después funcionan porque el cambio no es magia: casi siempre son los mismos cuatro o cinco productos bien elegidos. Aquí están los que más se repiten en las transformaciones que hemos ido guardando en Pinterest.",
+  "resumen": "Si quieres el máximo efecto con el mínimo esfuerzo, empieza por los cestos de despensa: son los que más cambian una foto. Las etiquetas, aunque parezcan un detalle, son lo que hace que el orden dure más de una semana.",
+  "productos": [
+    {
+      "nombre": "Cestos de Despensa Transparentes (Pack 6)",
+      "imagen": "/images/antes-despues/cestos-despensa.webp",
+      "alt_text": "Seis cestos transparentes ordenando los alimentos de una despensa",
+      "precio_texto": "32,90€",
+      "rating_texto": "4,7 · 4.215 valoraciones",
+      "descripcion": "El producto estrella de cualquier antes y después de despensa. Agrupas por tipo, todo queda alineado y ves lo que hay sin sacar nada.",
+      "pros": [
+        "Agrupan por categorías y alinean la despensa al instante",
+        "Transparentes, controlas el stock de un vistazo",
+        "Aptos para nevera y lavavajillas"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=cestos+despensa+transparentes+organizador"
+    },
+    {
+      "nombre": "Etiquetadora Térmica Portátil",
+      "imagen": "/images/antes-despues/etiquetadora.webp",
+      "alt_text": "Etiquetadora térmica portátil junto a botes etiquetados",
+      "precio_texto": "26,99€",
+      "rating_texto": "4,6 · 3.640 valoraciones",
+      "descripcion": "El detalle que hace que el orden dure. Etiquetar cada bote y cesto convierte un ordenado puntual en un sistema que la familia mantiene.",
+      "pros": [
+        "Impresión térmica, sin tinta ni recambios",
+        "Se maneja desde el móvil con plantillas",
+        "Etiquetas resistentes al agua y al roce"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=etiquetadora+termica+portatil+movil"
+    },
+    {
+      "nombre": "Dispensador de Cereales (Pack 2)",
+      "imagen": "/images/antes-despues/dispensador-cereales.webp",
+      "alt_text": "Dos dispensadores de cereales transparentes en una encimera",
+      "precio_texto": "23,95€",
+      "rating_texto": "4,5 · 1.929 valoraciones",
+      "descripcion": "Adiós a la fila de cajas de cereales aplastadas. Dos dispensadores igualan la estética y mantienen el cereal crujiente semanas.",
+      "pros": [
+        "Unifican la imagen de la despensa al instante",
+        "Cierre que mantiene el cereal crujiente",
+        "La dosis sale limpia, sin desperdiciar"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=dispensador+cereales+hermetico"
+    },
+    {
+      "nombre": "Bandejas Extraíbles para Armario (Pack 2)",
+      "imagen": "/images/antes-despues/bandejas-extraibles.webp",
+      "alt_text": "Bandejas extraíbles instaladas dentro de un armario bajo",
+      "precio_texto": "28,49€",
+      "rating_texto": "4,6 · 1.117 valoraciones",
+      "descripcion": "Lo que estaba al fondo del armario deja de perderse. Se instalan sobre la balda y sacan todo el contenido hacia ti.",
+      "pros": [
+        "Acceso al fondo del armario sin agacharte a rebuscar",
+        "Deslizamiento suave con topes de seguridad",
+        "Válidas para cocina, baño y zona de limpieza"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=bandejas+extraibles+armario+cocina"
+    }
+  ]
+}

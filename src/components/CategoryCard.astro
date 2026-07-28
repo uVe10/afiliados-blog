@@ -1,0 +1,62 @@
+---
+/** Tarjeta de categoría en la home. La portada usa el patrón diagonal del diseño. */
+interface Props {
+  name: string;
+  desc: string;
+  href: string;
+  /** CSS `background` de la portada (gradiente del diseño). */
+  cover: string;
+}
+
+const { name, desc, href, cover } = Astro.props;
+---
+
+<a class="cat" href={href}>
+  <div class="cat-cover" style={`background:${cover};`}></div>
+  <div class="cat-body">
+    <h2 class="cat-title">{name}</h2>
+    <p class="cat-desc">{desc}</p>
+    <span class="cat-cta">VER IDEAS →</span>
+  </div>
+</a>
+
+<style>
+  .cat {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    overflow: hidden;
+    color: var(--ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cat:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-card);
+  }
+  .cat-cover {
+    height: 110px;
+  }
+  .cat-body {
+    padding: 16px;
+  }
+  .cat-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 6px;
+  }
+  .cat-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin: 0 0 10px;
+  }
+  .cat-cta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage);
+  }
+</style>

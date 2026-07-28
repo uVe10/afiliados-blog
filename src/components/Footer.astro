@@ -1,0 +1,39 @@
+---
+/** Pie con la divulgación obligatoria de afiliados de Amazon + Pinterest. */
+const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
+---
+
+<footer class="site-footer">
+  <p class="disclosure">
+    Como afiliados de Amazon, OrganizaTuHogar obtiene ingresos por las compras
+    que cumplen los requisitos aplicables. Esto no supone ningún coste
+    adicional para ti.
+  </p>
+  <a href={PINTEREST} rel="noopener" class="pinterest">Síguenos en Pinterest →</a>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 20px 16px;
+    border-top: 1px solid var(--divider);
+    background: var(--bg);
+  }
+  @media (min-width: 720px) {
+    .site-footer {
+      padding: 40px 48px;
+    }
+  }
+  .disclosure {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.6;
+    margin: 0 0 10px;
+    font-style: italic;
+  }
+  .pinterest {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--sage);
+  }
+</style>

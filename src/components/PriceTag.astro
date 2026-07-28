@@ -1,0 +1,155 @@
+---
+/**
+ * Etiqueta de precio — elemento firma del sitio (estilo Dymo).
+ * Tres variantes tomadas de PriceTag.dc.html:
+ *   A · Troquelada (die-cut con agujero) — la opción por defecto.
+ *   B · Cinta (bordes en zig-zag).
+ *   C · Colgante (etiqueta con cordel).
+ * `precio` es SOLO texto visible (nunca Schema.org). Ver types.ts.
+ */
+import type { PriceTagVariant } from '../types';
+
+interface Props {
+  precio: string;
+  variant?: PriceTagVariant;
+  size?: 'normal' | 'compact';
+}
+
+const { precio, variant = 'A', size = 'normal' } = Astro.props;
+const compact = size === 'compact';
+---
+
+{variant === 'A' && (
+  <div class:list={['pt', 'pt-a', { compact }]}>
+    <div class="pt-a-body">
+      <span class="pt-text">{precio}</span>
+    </div>
+    <span class="pt-a-hole" aria-hidden="true"></span>
+  </div>
+)}
+
+{variant === 'B' && (
+  <div class:list={['pt', 'pt-b', { compact }]}>
+    <div class="pt-b-body">
+      <span class="pt-text">{precio}</span>
+    </div>
+  </div>
+)}
+
+{variant === 'C' && (
+  <div class:list={['pt', 'pt-c', { compact }]}>
+    <span class="pt-c-string" aria-hidden="true"></span>
+    <div class="pt-c-body">
+      <span class="pt-c-hole" aria-hidden="true"></span>
+      <span class="pt-text pt-c-text">{precio}</span>
+    </div>
+  </div>
+)}
+
+<style>
+  .pt {
+    position: relative;
+    display: inline-block;
+    filter: drop-shadow(0 2px 3px rgba(43, 38, 32, 0.18));
+  }
+  .pt-text {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.03em;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .compact .pt-text {
+    font-size: 12px;
+  }
+
+  /* --- A · Troquelada --- */
+  .pt-a {
+    transform: rotate(-2deg);
+  }
+  .pt-a-body {
+    background: var(--mustard);
+    clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%);
+    padding: 8px 16px 8px 24px;
+    min-width: 10px;
+  }
+  .pt-a.compact .pt-a-body {
+    padding: 5px 10px 5px 18px;
+    min-width: 0;
+  }
+  .pt-a-hole {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--ink);
+  }
+
+  /* --- B · Cinta --- */
+  .pt-b {
+    transform: rotate(-1.5deg);
+  }
+  .pt-b-body {
+    background: var(--mustard);
+    padding: 10px 14px;
+    min-width: 10px;
+    clip-path: polygon(
+      0% 15%, 5% 0%, 10% 15%, 15% 0%, 20% 15%, 25% 0%, 30% 15%, 35% 0%,
+      40% 15%, 45% 0%, 50% 15%, 55% 0%, 60% 15%, 65% 0%, 70% 15%, 75% 0%,
+      80% 15%, 85% 0%, 90% 15%, 95% 0%, 100% 15%, 100% 85%, 95% 100%,
+      90% 85%, 85% 100%, 80% 85%, 75% 100%, 70% 85%, 65% 100%, 60% 85%,
+      55% 100%, 50% 85%, 45% 100%, 40% 85%, 35% 100%, 30% 85%, 25% 100%,
+      20% 85%, 15% 100%, 10% 85%, 5% 100%, 0% 85%
+    );
+  }
+  .pt-b.compact .pt-b-body {
+    padding: 6px 8px;
+    min-width: 0;
+  }
+
+  /* --- C · Colgante --- */
+  .pt-c {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pt-c-string {
+    width: 22px;
+    height: 1px;
+    background: var(--ink);
+    transform: rotate(-25deg);
+    margin-bottom: 1px;
+  }
+  .pt-c-body {
+    position: relative;
+    background: var(--mustard);
+    border-radius: 6px 6px 3px 3px;
+    padding: 12px 12px 8px;
+    min-width: 10px;
+  }
+  .pt-c.compact .pt-c-body {
+    padding: 8px 8px 5px;
+    min-width: 0;
+  }
+  .pt-c-hole {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 1px solid var(--ink);
+  }
+  .pt-c-text {
+    display: block;
+    margin-top: 6px;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+/**
+ * Card de producto de la comparativa. Precio con la etiqueta firma (Dymo),
+ * rating y precio SOLO como texto. Si la imagen aún no existe en /public,
+ * cae al marcador de posición del diseño.
+ */
+import type { Producto, PriceTagVariant } from '../types';
+import PriceTag from './PriceTag.astro';
+import { withAffiliateTag } from '../lib/amazon';
+import { imageExists } from '../lib/images';
+
+interface Props {
+  producto: Producto;
+  id: string;
+  variant?: PriceTagVariant;
+}
+
+const { producto, id, variant = 'A' } = Astro.props;
+const hasImage = imageExists(producto.imagen);
+const href = withAffiliateTag(producto.enlace_amazon);
+---
+
+<article id={id} class="card">
+  {hasImage ? (
+    <img class="card-img" src={producto.imagen} alt={producto.alt_text} loading="lazy" width="200" height="200" />
+  ) : (
+    <div class="card-img foto-placeholder" role="img" aria-label={producto.alt_text}>
+      <span>foto: {producto.nombre}</span>
+    </div>
+  )}
+
+  <div class="card-body">
+    <h3 class="card-title">{producto.nombre}</h3>
+
+    <div class="card-price">
+      <PriceTag precio={producto.precio_texto} variant={variant} size="normal" />
+    </div>
+
+    <p class="card-rating">⭐ {producto.rating_texto}</p>
+
+    {producto.descripcion && <p class="card-desc">{producto.descripcion}</p>}
+
+    <ul class="card-pros">
+      {producto.pros.map((pro) => (
+        <li>
+          <span class="plus" aria-hidden="true">+</span>
+          <span>{pro}</span>
+        </li>
+      ))}
+    </ul>
+
+    <a class="card-cta" href={href} rel="sponsored nofollow noopener" target="_blank">
+      Ver en Amazon
+    </a>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-margin-top: 70px;
+  }
+  @media (min-width: 720px) {
+    .card {
+      flex-direction: row;
+      padding: 28px;
+    }
+  }
+
+  .card-img {
+    width: 100%;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  @media (min-width: 720px) {
+    .card-img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 10px;
+  }
+  .card-price {
+    margin-bottom: 10px;
+  }
+  .card-rating {
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.75;
+    margin: 0 0 12px;
+  }
+  .card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.85;
+    margin: 0 0 12px;
+  }
+  .card-pros {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .card-pros li {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .card-pros .plus {
+    font-family: var(--font-mono);
+    color: var(--sage);
+    font-weight: 700;
+  }
+  .card-cta {
+    display: inline-block;
+    background: var(--mustard);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 22px;
+    border-radius: 6px;
+  }
+  .card-cta:hover {
+    background: var(--mustard-dark);
+    text-decoration: none;
+  }
+</style>

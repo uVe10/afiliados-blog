@@ -1,0 +1,90 @@
+---
+/**
+ * <head> compartido: meta tags, Open Graph, Twitter Card, canonical y
+ * (opcionalmente) Schema.org BlogPosting.
+ *
+ * SEO deliberado: el Schema NUNCA incluye precio ni valoración (Offer /
+ * AggregateRating). A este volumen no podemos mantenerlos actualizados y el
+ * marcado obsoleto penaliza. El precio/rating vive solo como texto visible.
+ */
+interface Props {
+  title: string;
+  description: string;
+  /** Ruta local del og:image, p. ej. "/images/cocina/portada.webp". */
+  image?: string;
+  imageAlt?: string;
+  /** Si es un artículo, emite BlogPosting + og:type=article. */
+  article?: {
+    publishedTime: string; // ISO
+    modifiedTime: string; // ISO
+  };
+}
+
+const { title, description, image, imageAlt, article } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image ?? '/images/og-default.png', Astro.site).href;
+const siteName = 'OrganizaTuHogar';
+
+const schema = article
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      image: ogImage,
+      datePublished: article.publishedTime,
+      dateModified: article.modifiedTime,
+      inLanguage: 'es-ES',
+      mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+      author: { '@type': 'Organization', name: siteName, url: Astro.site?.href },
+      publisher: {
+        '@type': 'Organization',
+        name: siteName,
+        logo: {
+          '@type': 'ImageObject',
+          url: new URL('/images/logo.png', Astro.site).href,
+        },
+      },
+    }
+  : null;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:site_name" content={siteName} />
+<meta property="og:type" content={article ? 'article' : 'website'} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="es_ES" />
+{imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+{article && <meta property="article:published_time" content={article.publishedTime} />}
+{article && <meta property="article:modified_time" content={article.modifiedTime} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+{schema && <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />}

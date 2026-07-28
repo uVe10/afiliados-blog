@@ -1,0 +1,123 @@
+---
+/**
+ * Cabecera con logo (marca troquelada) + navegación por categorías.
+ * En móvil la nav es una tira scrollable de "chips"; en escritorio, enlaces.
+ */
+import { articles } from '../lib/articles';
+
+// Orden fijo de categorías tal como en el diseño.
+const ORDEN = ['Cocina', 'Armario', 'Espacios pequeños', 'Antes y Después'];
+const navItems = ORDEN.map((cat) => {
+  const art = articles.find((a) => a.categoria === cat);
+  return art ? { label: cat, href: `/articulos/${art.slug}` } : null;
+}).filter((x): x is { label: string; href: string } => x !== null);
+
+const homeHref = import.meta.env.BASE_URL;
+---
+
+<header class="site-header">
+  <a href={homeHref} class="brand" aria-label="OrganizaTuHogar — inicio">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">OrganizaTuHogar</span>
+  </a>
+
+  <nav class="nav-desktop" aria-label="Categorías">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</header>
+
+<nav class="nav-mobile" aria-label="Categorías">
+  {navItems.map((item) => <a href={item.href} class="chip">{item.label}</a>)}
+</nav>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--divider);
+    background: var(--bg);
+  }
+  @media (min-width: 720px) {
+    .site-header {
+      padding: 18px 32px;
+    }
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .brand:hover {
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 26px;
+    height: 26px;
+    background: var(--mustard);
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 30% 100%, 0 50%);
+    flex-shrink: 0;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  @media (min-width: 720px) {
+    .brand-name {
+      font-size: 20px;
+    }
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+  @media (min-width: 720px) {
+    .nav-desktop {
+      display: flex;
+      gap: 28px;
+    }
+    .nav-desktop a {
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  .nav-mobile {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--divider);
+    background: var(--bg);
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (min-width: 720px) {
+    .nav-mobile {
+      display: none;
+    }
+  }
+  .chip {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    border: 1px solid var(--divider);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--surface);
+  }
+  .chip:hover {
+    text-decoration: none;
+    border-color: var(--sage);
+  }
+</style>

@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import { articles } from '../lib/articles';
+
+const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
+
+// Portadas de categoría con el patrón diagonal del diseño (una por categoría).
+const patrones: Record<string, string> = {
+  Cocina:
+    'linear-gradient(135deg, #6B7860, #6B7860 10px, #5D6957 10px, #5D6957 20px)',
+  Armario:
+    'linear-gradient(135deg, #C08A3E, #C08A3E 10px, #AD7A34 10px, #AD7A34 20px)',
+  'Espacios pequeños':
+    'linear-gradient(135deg, #8B9682, #8B9682 10px, #7D8875 10px, #7D8875 20px)',
+  'Antes y Después':
+    'linear-gradient(135deg, #D2A567, #D2A567 10px, #C08A3E 10px, #C08A3E 20px)',
+};
+
+const ORDEN = ['Cocina', 'Armario', 'Espacios pequeños', 'Antes y Después'];
+const cats = ORDEN.map((cat) => {
+  const art = articles.find((a) => a.categoria === cat);
+  if (!art) return null;
+  return {
+    name: cat,
+    desc: art.meta_descripcion,
+    href: `/articulos/${art.slug}`,
+    cover: patrones[cat] ?? 'var(--divider)',
+  };
+}).filter((x): x is NonNullable<typeof x> => x !== null);
+---
+
+<BaseLayout
+  title="OrganizaTuHogar — Comparativas honestas de organización del hogar"
+  description="Comparativas honestas de productos de Amazon para organizar cocina, armario y espacios pequeños. Probados de verdad, sin relleno."
+  image="/images/og-default.png"
+>
+  <main class="home">
+    <section class="hero">
+      <h1>Organiza tu casa sin complicarte</h1>
+      <p class="hero-lead">
+        Comparativas honestas de productos de Amazon para cocina, armario y
+        espacios pequeños — probados de verdad, sin relleno.
+      </p>
+      <p class="hero-sub">
+        También estamos en <a href={PINTEREST} rel="noopener">Pinterest</a>, si
+        prefieres curiosear ahí primero.
+      </p>
+    </section>
+
+    <section class="cats">
+      {cats.map((c) => (
+        <CategoryCard name={c.name} desc={c.desc} href={c.href} cover={c.cover} />
+      ))}
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .home {
+    padding: 20px 16px 32px;
+  }
+  @media (min-width: 720px) {
+    .home {
+      padding: 40px 48px 56px;
+    }
+  }
+
+  .hero {
+    max-width: 640px;
+    margin-bottom: 24px;
+  }
+  @media (min-width: 720px) {
+    .hero {
+      margin-bottom: 36px;
+    }
+  }
+  .hero h1 {
+    font-weight: 800;
+    font-size: 28px;
+    margin: 0 0 12px;
+  }
+  @media (min-width: 720px) {
+    .hero h1 {
+      font-size: 42px;
+    }
+  }
+  .hero-lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    opacity: 0.85;
+    margin: 0 0 8px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.65;
+    margin: 0;
+  }
+
+  .cats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 720px) {
+    .cats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

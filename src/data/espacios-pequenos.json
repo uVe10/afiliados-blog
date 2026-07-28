@@ -1,0 +1,86 @@
+{
+  "slug": "espacios-pequenos",
+  "categoria": "Espacios pequeños",
+  "ancla": "pequenos",
+  "titulo_articulo": "Aprovecha Cada Rincón en Pisos Pequeños",
+  "meta_titulo": "Organización para Espacios Pequeños | OrganizaTuHogar",
+  "meta_descripcion": "Ideas para aprovechar cada rincón en pisos y habitaciones reducidas. Cinco soluciones de Amazon España que ganan espacio de verdad.",
+  "fecha_publicacion": "2026-06-29",
+  "fecha_modificacion": "2026-07-20",
+  "imagen_portada": "/images/pequenos/portada.webp",
+  "portada_alt": "Habitación pequeña ordenada con organizadores verticales y bajo cama",
+  "intro": "En un piso pequeño el problema casi nunca es la falta de metros, sino el espacio que no estás usando: detrás de las puertas, bajo la cama, en vertical. Estos cinco productos convierten ese hueco muerto en almacenamiento real.",
+  "resumen": "El organizador de puerta es el que más rinde por lo que cuesta: aprovecha una superficie que estaba totalmente perdida. Para dormitorios, las bolsas de vacío bajo cama son las que más ropa de temporada esconden.",
+  "productos": [
+    {
+      "nombre": "Organizador Colgante de Puerta (Pack 2)",
+      "imagen": "/images/pequenos/organizador-puerta.webp",
+      "alt_text": "Organizador de bolsillos colgado en la parte trasera de una puerta",
+      "precio_texto": "17,95€",
+      "rating_texto": "4,6 · 2.744 valoraciones",
+      "descripcion": "Cuelga detrás de cualquier puerta y aprovecha una superficie que estaba totalmente perdida. Lo usamos para productos de limpieza y para zapatos.",
+      "pros": [
+        "Se cuelga sin taladrar, con los ganchos incluidos",
+        "Bolsillos transparentes, ves lo que hay de un vistazo",
+        "Aguanta botes de limpieza sin descolgarse"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=organizador+colgante+puerta+bolsillos"
+    },
+    {
+      "nombre": "Bolsas de Vacío Bajo Cama (Pack 6)",
+      "imagen": "/images/pequenos/bolsas-vacio.webp",
+      "alt_text": "Bolsas de vacío con ropa de invierno comprimida bajo una cama",
+      "precio_texto": "24,99€",
+      "rating_texto": "4,5 · 6.120 valoraciones",
+      "descripcion": "La ropa de invierno reduce a un tercio y desaparece bajo la cama. Incluye bomba manual, así que funcionan sin aspiradora.",
+      "pros": [
+        "Reducen el volumen hasta un 70%",
+        "Bomba manual incluida, no necesitas aspiradora",
+        "Cierre doble, no vuelven a hincharse en semanas"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=bolsas+vacio+ropa+bajo+cama"
+    },
+    {
+      "nombre": "Estantería Escalera Estrecha (4 Baldas)",
+      "imagen": "/images/pequenos/estanteria-escalera.webp",
+      "alt_text": "Estantería escalera estrecha de madera y metal apoyada en la pared",
+      "precio_texto": "39,90€",
+      "rating_texto": "4,7 · 1.408 valoraciones",
+      "descripcion": "Estrecha abajo y ancha arriba: ocupa poquísimo suelo y da mucha balda. Perfecta para pasillos y huecos de 40 cm.",
+      "pros": [
+        "Solo 40 cm de ancho, cabe en cualquier hueco",
+        "Estructura estable, no baila con peso arriba",
+        "Estética nórdica que combina con todo"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=estanteria+escalera+estrecha+4+baldas"
+    },
+    {
+      "nombre": "Carro Auxiliar de 3 Pisos con Ruedas",
+      "imagen": "/images/pequenos/carro-ruedas.webp",
+      "alt_text": "Carro auxiliar metálico de tres pisos con ruedas",
+      "precio_texto": "29,95€",
+      "rating_texto": "4,7 · 9.531 valoraciones",
+      "descripcion": "El comodín de los pisos pequeños: hoy en el baño, mañana en la cocina. Con ruedas, lo mueves donde haga falta.",
+      "pros": [
+        "Tres pisos de almacenaje que se mueven contigo",
+        "Ruedas con freno, no se escapa solo",
+        "Se monta sin herramientas en cinco minutos"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=carro+auxiliar+3+pisos+ruedas"
+    },
+    {
+      "nombre": "Baldas Flotantes de Esquina (Pack 2)",
+      "imagen": "/images/pequenos/baldas-esquina.webp",
+      "alt_text": "Dos baldas flotantes de madera montadas en una esquina de la pared",
+      "precio_texto": "18,49€",
+      "rating_texto": "4,4 · 872 valoraciones",
+      "descripcion": "Las esquinas son el espacio más desaprovechado de cualquier habitación. Estas baldas lo convierten en sitio para libros o plantas.",
+      "pros": [
+        "Aprovechan la esquina, que casi nunca se usa",
+        "Anclaje oculto, quedan flotando sin soportes a la vista",
+        "Incluyen plantilla y tacos para acertar al taladrar"
+      ],
+      "enlace_amazon": "https://www.amazon.es/s?k=baldas+flotantes+esquina+madera"
+    }
+  ]
+}

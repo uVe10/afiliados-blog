@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://organizatuhogar.net/sitemap-index.xml
