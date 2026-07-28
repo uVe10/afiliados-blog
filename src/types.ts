@@ -44,6 +44,12 @@ export interface Articulo {
   categoria: string;
   /** Ancla usada en la navegación de la home (#cocina, #armario...). */
   ancla: string;
+  /**
+   * Orden en la navegación y en la parrilla de la home (menor = primero).
+   * Vive en el dato, no en los componentes, para que añadir un JSON nuevo
+   * baste para que aparezca en su sitio. Si falta, se ordena por fecha.
+   */
+  orden?: number;
   /** Título H1 visible del artículo. */
   titulo_articulo: string;
   /** Título para <title> y og:title (puede diferir del H1). */

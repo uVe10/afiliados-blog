@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
-import { articles } from '../lib/articles';
+import { navArticles } from '../lib/articles';
 
 const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
 
-// Portadas de categoría con el patrón diagonal del diseño (una por categoría).
+// Patrón diagonal del diseño por categoría. Si una categoría nueva no está
+// aquí, se rota una paleta de reserva para que igualmente tenga portada.
 const patrones: Record<string, string> = {
   Cocina:
     'linear-gradient(135deg, #6B7860, #6B7860 10px, #5D6957 10px, #5D6957 20px)',
@@ -16,18 +17,15 @@ const patrones: Record<string, string> = {
   'Antes y Después':
     'linear-gradient(135deg, #D2A567, #D2A567 10px, #C08A3E 10px, #C08A3E 20px)',
 };
+const patronesReserva = Object.values(patrones);
 
-const ORDEN = ['Cocina', 'Armario', 'Espacios pequeños', 'Antes y Después'];
-const cats = ORDEN.map((cat) => {
-  const art = articles.find((a) => a.categoria === cat);
-  if (!art) return null;
-  return {
-    name: cat,
-    desc: art.meta_descripcion,
-    href: `/articulos/${art.slug}`,
-    cover: patrones[cat] ?? 'var(--divider)',
-  };
-}).filter((x): x is NonNullable<typeof x> => x !== null);
+// Una tarjeta por artículo, generada a partir de los JSON de src/data.
+const cats = navArticles.map((art, i) => ({
+  name: art.categoria,
+  desc: art.meta_descripcion,
+  href: `/articulos/${art.slug}`,
+  cover: patrones[art.categoria] ?? patronesReserva[i % patronesReserva.length],
+}));
 ---
 
 <BaseLayout

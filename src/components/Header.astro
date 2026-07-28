@@ -3,14 +3,13 @@
  * Cabecera con logo (marca troquelada) + navegación por categorías.
  * En móvil la nav es una tira scrollable de "chips"; en escritorio, enlaces.
  */
-import { articles } from '../lib/articles';
+import { navArticles } from '../lib/articles';
 
-// Orden fijo de categorías tal como en el diseño.
-const ORDEN = ['Cocina', 'Armario', 'Espacios pequeños', 'Antes y Después'];
-const navItems = ORDEN.map((cat) => {
-  const art = articles.find((a) => a.categoria === cat);
-  return art ? { label: cat, href: `/articulos/${art.slug}` } : null;
-}).filter((x): x is { label: string; href: string } => x !== null);
+// Un enlace por artículo, generado a partir de los JSON de src/data.
+const navItems = navArticles.map((art) => ({
+  label: art.categoria,
+  href: `/articulos/${art.slug}`,
+}));
 
 const homeHref = import.meta.env.BASE_URL;
 ---
