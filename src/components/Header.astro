@@ -15,22 +15,34 @@ const navItems = navArticles.map((art) => ({
 const homeHref = import.meta.env.BASE_URL;
 ---
 
-<header class="site-header">
-  <a href={homeHref} class="brand" aria-label="OrganizaTuHogar — inicio">
-    <span class="brand-mark" aria-hidden="true"></span>
-    <span class="brand-name">OrganizaTuHogar</span>
-  </a>
+<div class="site-header-wrap">
+  <header class="site-header">
+    <a href={homeHref} class="brand" aria-label="OrganizaTuHogar — inicio">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">OrganizaTuHogar</span>
+    </a>
 
-  <nav class="nav-desktop" aria-label="Categorías">
-    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    <nav class="nav-desktop" aria-label="Categorías">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </header>
+
+  <nav class="nav-mobile" aria-label="Categorías">
+    {navItems.map((item) => <a href={item.href} class="chip">{item.label}</a>)}
   </nav>
-</header>
-
-<nav class="nav-mobile" aria-label="Categorías">
-  {navItems.map((item) => <a href={item.href} class="chip">{item.label}</a>)}
-</nav>
+</div>
 
 <style>
+  /* Cabecera fija: logo + nav (o tira de chips en móvil) siempre visibles
+     al hacer scroll, en escritorio y móvil. Requiere que ningún ancestro
+     tenga overflow distinto de visible/clip (ver .canvas en global.css). */
+  .site-header-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+  }
+
   .site-header {
     display: flex;
     align-items: center;

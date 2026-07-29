@@ -87,7 +87,10 @@ summary:focus-visible {
   width: 100%;
   max-width: var(--content-max);
   background: var(--bg);
-  overflow: hidden;
+  /* clip (no hidden) recorta las esquinas redondeadas SIN crear un contenedor
+     de scroll, condición necesaria para que el header sticky se ancle al
+     viewport. hidden rompería position: sticky del header. */
+  overflow: clip;
 }
 @media (min-width: 720px) {
   .canvas-outer {
