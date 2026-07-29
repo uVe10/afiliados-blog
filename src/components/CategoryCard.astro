@@ -4,15 +4,23 @@ interface Props {
   name: string;
   desc: string;
   href: string;
-  /** CSS `background` de la portada (gradiente del diseño). */
+  /** CSS `background` de la portada (gradiente del diseño). Fallback. */
   cover: string;
+  /** Ruta de la imagen de portada. Si no existe, se usa `cover`. */
+  image?: string;
+  /** Texto alternativo de la imagen de portada. */
+  alt?: string;
 }
 
-const { name, desc, href, cover } = Astro.props;
+const { name, desc, href, cover, image, alt } = Astro.props;
 ---
 
 <a class="cat" href={href}>
-  <div class="cat-cover" style={`background:${cover};`}></div>
+  {image ? (
+    <img class="cat-cover" src={image} alt={alt} loading="lazy" width="400" height="150" />
+  ) : (
+    <div class="cat-cover" style={`background:${cover};`}></div>
+  )}
   <div class="cat-body">
     <h2 class="cat-title">{name}</h2>
     <p class="cat-desc">{desc}</p>
@@ -37,7 +45,10 @@ const { name, desc, href, cover } = Astro.props;
     box-shadow: var(--sombra-card);
   }
   .cat-cover {
-    height: 110px;
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
   }
   .cat-body {
     padding: 16px;

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
 import { navArticles } from '../lib/articles';
+import { imageExists } from '../lib/images';
 
 const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
 
@@ -25,6 +26,8 @@ const cats = navArticles.map((art, i) => ({
   desc: art.meta_descripcion,
   href: `/articulos/${art.slug}`,
   cover: patrones[art.categoria] ?? patronesReserva[i % patronesReserva.length],
+  image: imageExists(art.imagen_portada) ? art.imagen_portada : undefined,
+  alt: art.portada_alt,
 }));
 ---
 
@@ -48,7 +51,7 @@ const cats = navArticles.map((art, i) => ({
 
     <section class="cats">
       {cats.map((c) => (
-        <CategoryCard name={c.name} desc={c.desc} href={c.href} cover={c.cover} />
+        <CategoryCard name={c.name} desc={c.desc} href={c.href} cover={c.cover} image={c.image} alt={c.alt} />
       ))}
     </section>
   </main>

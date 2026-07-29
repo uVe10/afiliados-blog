@@ -5,69 +5,55 @@
   "orden": 4,
   "titulo_articulo": "Antes y Después: Los Productos Detrás de las Transformaciones",
   "meta_titulo": "Antes y Después: Transformaciones Reales del Hogar | OrganizaTuHogar",
-  "meta_descripcion": "Transformaciones reales de armarios y cocinas, paso a paso, y los productos de Amazon España que las hicieron posibles.",
+  "meta_descripcion": "Transformaciones reales de cajones y escritorios, y los productos de Amazon España que las hicieron posibles.",
   "fecha_publicacion": "2026-07-05",
-  "fecha_modificacion": "2026-07-24",
+  "fecha_modificacion": "2026-07-29",
   "imagen_portada": "/images/antes-despues/portada.webp",
-  "portada_alt": "Comparativa antes y después de una despensa desordenada y otra ordenada",
-  "intro": "Las fotos de antes y después funcionan porque el cambio no es magia: casi siempre son los mismos cuatro o cinco productos bien elegidos. Aquí están los que más se repiten en las transformaciones que hemos ido guardando en Pinterest.",
-  "resumen": "Si quieres el máximo efecto con el mínimo esfuerzo, empieza por los cestos de despensa: son los que más cambian una foto. Las etiquetas, aunque parezcan un detalle, son lo que hace que el orden dure más de una semana.",
+  "portada_alt": "Comparativa antes y después de un cajón desordenado y otro ordenado con separadores",
+  "intro": "Las fotos de antes y después funcionan porque el cambio no es magia: casi siempre es un solo producto bien elegido resolviendo un problema muy concreto. Aquí están los tres que más veces hemos visto repetirse en transformaciones reales de cajones y escritorios.",
+  "resumen": "Si quieres el máximo contraste con el mínimo esfuerzo, empieza por los separadores de cajón Lifewit: son los que generan el cambio más evidente en una sola foto. El organizador de escritorio es la opción más económica de las tres.",
   "productos": [
     {
-      "nombre": "Cestos de Despensa Transparentes (Pack 6)",
-      "imagen": "/images/antes-despues/cestos-despensa.webp",
-      "alt_text": "Seis cestos transparentes ordenando los alimentos de una despensa",
-      "precio_texto": "32,90€",
-      "rating_texto": "4,7 · 4.215 valoraciones",
-      "descripcion": "El producto estrella de cualquier antes y después de despensa. Agrupas por tipo, todo queda alineado y ves lo que hay sin sacar nada.",
+      "nombre": "Separadores de Cajón Lifewit (Ajustables 28-40 cm)",
+      "imagen": "/images/antes-despues/separadores-cajon.webp",
+      "alt_text": "Comparación de un cajón de armario antes y después: arriba organizado con separadores blancos y ropa doblada en secciones, abajo desordenado sin separadores",
+      "precio_texto": "24,99€",
+      "rating_texto": "4,5 · 5.871 valoraciones",
+      "descripcion": "Estos paneles blancos ajustables (de 28 a 40 cm) se instalan verticalmente dentro de un cajón mediante un mecanismo telescópico, sin necesidad de tornillos ni herramientas. Dividen el espacio en secciones que mantienen la ropa doblada en vertical, evitando que se mezcle o se desordene al abrir y cerrar el cajón varias veces al día. Es de los productos que más contraste genera en una foto de antes y después, porque el cambio de un cajón caótico a uno con secciones perfectamente definidas es inmediato.",
       "pros": [
-        "Agrupan por categorías y alinean la despensa al instante",
-        "Transparentes, controlas el stock de un vistazo",
-        "Aptos para nevera y lavavajillas"
+        "Ajustable de 28 a 40 cm sin herramientas",
+        "Pack de 5 paneles, cubre un cajón completo",
+        "Mantiene la ropa doblada en vertical y visible"
       ],
-      "enlace_amazon": "https://www.amazon.es/s?k=cestos+despensa+transparentes+organizador"
+      "enlace_amazon": ""
     },
     {
-      "nombre": "Etiquetadora Térmica Portátil",
-      "imagen": "/images/antes-despues/etiquetadora.webp",
-      "alt_text": "Etiquetadora térmica portátil junto a botes etiquetados",
-      "precio_texto": "26,99€",
-      "rating_texto": "4,6 · 3.640 valoraciones",
-      "descripcion": "El detalle que hace que el orden dure. Etiquetar cada bote y cesto convierte un ordenado puntual en un sistema que la familia mantiene.",
+      "nombre": "Organizador de Cajones de Baño Vtopmart (15 piezas)",
+      "imagen": "/images/antes-despues/cajones-bano.webp",
+      "alt_text": "Comparación antes y después de un cajón de baño: organizado con bandejas transparentes de distintos tamaños y desordenado sin separadores",
+      "precio_texto": "13,99€",
+      "rating_texto": "4,6 · 13.099 valoraciones",
+      "descripcion": "Un set de 15 bandejas acrílicas transparentes en 4 tamaños distintos, pensadas para encajar entre sí como un puzzle dentro de cualquier cajón de baño o tocador. Con más de 13.000 valoraciones, es una opción muy consolidada para separar maquillaje, artículos de higiene o pequeños accesorios que normalmente acaban amontonados. Al ser transparente, cada bandeja permite localizar el contenido sin tener que sacarlas todas.",
       "pros": [
-        "Impresión térmica, sin tinta ni recambios",
-        "Se maneja desde el móvil con plantillas",
-        "Etiquetas resistentes al agua y al roce"
+        "Set de 15 piezas en 4 tamaños combinables",
+        "Transparente, facilita encontrar cada producto",
+        "Precio muy competitivo para el volumen de piezas"
       ],
-      "enlace_amazon": "https://www.amazon.es/s?k=etiquetadora+termica+portatil+movil"
+      "enlace_amazon": ""
     },
     {
-      "nombre": "Dispensador de Cereales (Pack 2)",
-      "imagen": "/images/antes-despues/dispensador-cereales.webp",
-      "alt_text": "Dos dispensadores de cereales transparentes en una encimera",
-      "precio_texto": "23,95€",
-      "rating_texto": "4,5 · 1.929 valoraciones",
-      "descripcion": "Adiós a la fila de cajas de cereales aplastadas. Dos dispensadores igualan la estética y mantienen el cereal crujiente semanas.",
+      "nombre": "Organizador de Escritorio D.RECT",
+      "imagen": "/images/antes-despues/escritorio.webp",
+      "alt_text": "Organizador de escritorio metálico de malla negra con bolígrafos y notas ordenadas",
+      "precio_texto": "8,39€",
+      "rating_texto": "4,5 · 1.226 valoraciones",
+      "descripcion": "Un organizador de malla metálica con estructura escalonada: una bandeja plana en la base para notas o papeles, y tres compartimentos de distinta altura para bolígrafos, rotuladores y marcadores. Es la opción más económica de esta selección y también la que introduce más variedad de material en una comparativa dominada por plástico y tela, aportando un acabado más robusto para el escritorio o zona de teletrabajo.",
       "pros": [
-        "Unifican la imagen de la despensa al instante",
-        "Cierre que mantiene el cereal crujiente",
-        "La dosis sale limpia, sin desperdiciar"
+        "El más económico de la selección, menos de 9€",
+        "Estructura escalonada con 3 alturas distintas",
+        "Base plana adicional para notas y papeles"
       ],
-      "enlace_amazon": "https://www.amazon.es/s?k=dispensador+cereales+hermetico"
-    },
-    {
-      "nombre": "Bandejas Extraíbles para Armario (Pack 2)",
-      "imagen": "/images/antes-despues/bandejas-extraibles.webp",
-      "alt_text": "Bandejas extraíbles instaladas dentro de un armario bajo",
-      "precio_texto": "28,49€",
-      "rating_texto": "4,6 · 1.117 valoraciones",
-      "descripcion": "Lo que estaba al fondo del armario deja de perderse. Se instalan sobre la balda y sacan todo el contenido hacia ti.",
-      "pros": [
-        "Acceso al fondo del armario sin agacharte a rebuscar",
-        "Deslizamiento suave con topes de seguridad",
-        "Válidas para cocina, baño y zona de limpieza"
-      ],
-      "enlace_amazon": "https://www.amazon.es/s?k=bandejas+extraibles+armario+cocina"
+      "enlace_amazon": ""
     }
   ]
 }
