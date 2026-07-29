@@ -66,6 +66,16 @@ export interface Articulo {
   portada_alt: string;
   /** Párrafo(s) de introducción bajo el H1. */
   intro: string;
+  /**
+   * Bloque editorial (H2 con keyword + párrafo) que se muestra tras la intro,
+   * antes de las cards. Aporta densidad de contenido y un H2 semántico real.
+   */
+  metodologia?: {
+    /** Encabezado H2 del bloque (debe contener la keyword del artículo). */
+    titulo: string;
+    /** Párrafo de contenido editorial. */
+    texto: string;
+  };
   /** Cards de producto de la comparativa. */
   productos: Producto[];
   /** Cierre "En resumen" (opcional). */

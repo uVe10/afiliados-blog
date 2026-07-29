@@ -4,14 +4,18 @@
   "ancla": "antes-despues",
   "orden": 4,
   "titulo_articulo": "Antes y Después: Los Productos Detrás de las Transformaciones",
-  "meta_titulo": "Antes y Después: Transformaciones Reales del Hogar | OrganizaTuHogar",
-  "meta_descripcion": "Transformaciones reales de cajones y escritorios, y los productos de Amazon España que las hicieron posibles.",
+  "meta_titulo": "Antes y Después: Transformaciones del Hogar | OrganizaTuHogar",
+  "meta_descripcion": "Transformaciones reales de cajones, baños y escritorios. Descubre los tres productos de Amazon España que hacen posible el cambio de caos a orden en una sola foto.",
   "fecha_publicacion": "2026-07-05",
   "fecha_modificacion": "2026-07-29",
   "imagen_portada": "/images/antes-despues/portada.webp",
   "portada_alt": "Comparativa antes y después de un cajón desordenado y otro ordenado con separadores",
-  "intro": "Las fotos de antes y después funcionan porque el cambio no es magia: casi siempre es un solo producto bien elegido resolviendo un problema muy concreto. Aquí están los tres que más veces hemos visto repetirse en transformaciones reales de cajones y escritorios.",
-  "resumen": "Si quieres el máximo contraste con el mínimo esfuerzo, empieza por los separadores de cajón Lifewit: son los que generan el cambio más evidente en una sola foto. El organizador de escritorio es la opción más económica de las tres.",
+  "intro": "Las fotos de antes y después funcionan porque el cambio casi nunca es magia: es un solo producto bien elegido resolviendo un problema muy concreto, ya sea un cajón de ropa, uno de baño, o la mesa de trabajo. No hace falta comprar mobiliario nuevo ni pasar un fin de semana entero ordenando — a veces el contraste más llamativo sale de añadir una sola pieza al espacio que ya tienes. Aquí están los tres productos que más veces hemos visto repetirse en transformaciones reales de cajones y escritorios.",
+  "metodologia": {
+    "titulo": "Por qué estos productos generan el antes y después más llamativo",
+    "texto": "No todos los organizadores producen el mismo efecto visual. Los que mejor funcionan en una comparación de antes y después suelen compartir algo: convierten un espacio con elementos sueltos en secciones claramente delimitadas, de forma que el ojo detecta el cambio en menos de un segundo. Por eso esta selección se centra en separadores y bandejas, más que en cajas cerradas, priorizando siempre productos con miles de valoraciones que confirman que el resultado se mantiene con el uso diario, no solo en la primera foto."
+  },
+  "resumen": "Si quieres el máximo contraste con el mínimo esfuerzo, empieza por los separadores de cajón Lifewit: son los que generan el cambio más evidente en una sola foto, al convertir un cajón con la ropa amontonada en secciones perfectamente definidas. El organizador de escritorio D.RECT es la opción más económica de las tres, por debajo de los 9€.",
   "productos": [
     {
       "nombre": "Separadores de Cajón Lifewit (Ajustables 28-40 cm)",

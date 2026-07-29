@@ -5,13 +5,17 @@
   "orden": 3,
   "titulo_articulo": "Aprovecha Cada Rincón en Pisos Pequeños",
   "meta_titulo": "Organización para Espacios Pequeños | OrganizaTuHogar",
-  "meta_descripcion": "Ideas para aprovechar cada rincón en pisos y habitaciones reducidas. Seis soluciones de Amazon España que ganan espacio de verdad.",
+  "meta_descripcion": "Ideas para aprovechar cada rincón en pisos y habitaciones reducidas: nevera, entrada, armario y lavandería. Seis soluciones de Amazon España que ganan espacio de verdad.",
   "fecha_publicacion": "2026-06-29",
   "fecha_modificacion": "2026-07-29",
   "imagen_portada": "/images/pequenos/portada.webp",
   "portada_alt": "Entrada de casa ordenada con zapatero estrecho y organizador colgante",
-  "intro": "En un piso pequeño el problema casi nunca es la falta de metros, sino el espacio que no estás usando: detrás de una puerta, en la nevera, en la entrada, o en un rincón de la lavandería. Estos seis productos convierten ese hueco muerto en almacenamiento real.",
-  "resumen": "El zapatero de entrada es el que más rinde por lo que ocupa en el suelo, gracias a su diseño alto y estrecho. Si no tienes tendedero exterior, el tendedero plegable es la solución más rápida de guardar cuando no hace falta.",
+  "intro": "En un piso pequeño el problema casi nunca es la falta de metros, sino el espacio que no estás usando: detrás de una puerta, en la nevera, en la entrada de casa, o en un rincón de la lavandería. No hace falta mudarse ni tirar tabiques para ganar orden — a veces basta con mirar esos huecos con otros ojos. Hemos reunido seis productos de Amazon España, pensados para seis rincones distintos de la casa, que convierten ese espacio muerto en almacenamiento real y aprovechable.",
+  "metodologia": {
+    "titulo": "Espacios pequeños: dónde suele estar el hueco que no ves",
+    "texto": "No hace falta un piso grande para tener espacios pequeños desaprovechados: la puerta de un armario, la nevera, la entrada de casa o un rincón de la lavandería suelen quedar completamente en blanco aunque el resto de la casa esté abarrotado. Hemos elegido productos para seis de estos huecos concretos, todos con precios por debajo de los 26€ y con valoraciones reales que confirman que funcionan en pisos de verdad, no solo en fotos de catálogo."
+  },
+  "resumen": "El zapatero de entrada es el que más rinde por lo que ocupa en el suelo, gracias a su diseño alto y estrecho pensado justo para pasillos reducidos. Si no tienes tendedero exterior ni balcón, el tendedero plegable es la solución más rápida de instalar y de guardar cuando no hace falta.",
   "productos": [
     {
       "nombre": "Organizador de Nevera Apilable Diwoker (4 piezas)",

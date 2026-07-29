@@ -52,6 +52,13 @@ const productos = art.productos.map((p, i) => {
     </p>
     <p class="intro">{art.intro}</p>
 
+    {art.metodologia && (
+      <section class="editorial">
+        <h2>{art.metodologia.titulo}</h2>
+        <p>{art.metodologia.texto}</p>
+      </section>
+    )}
+
     <!-- Vista rápida -->
     <details class="section" open>
       <summary><h2>Vista rápida</h2><span class="chev" aria-hidden="true">▾</span></summary>
@@ -207,6 +214,24 @@ const productos = art.productos.map((p, i) => {
     opacity: 0.9;
     margin: 0 0 28px;
     max-width: 680px;
+  }
+
+  /* Bloque editorial (H2 con keyword + párrafo), antes de las cards */
+  .editorial {
+    margin: 0 0 32px;
+    max-width: 680px;
+  }
+  .editorial h2 {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 0 10px;
+  }
+  .editorial p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink);
+    opacity: 0.85;
+    margin: 0;
   }
 
   /* Secciones colapsables */
