@@ -1,5 +1,7 @@
 ---
 /** Tarjeta de categoría en la home. La portada usa el patrón diagonal del diseño. */
+import { withBase } from '../lib/url';
+
 interface Props {
   name: string;
   desc: string;
@@ -17,7 +19,7 @@ const { name, desc, href, cover, image, alt } = Astro.props;
 
 <a class="cat" href={href}>
   {image ? (
-    <img class="cat-cover" src={image} alt={alt} loading="lazy" width="400" height="150" />
+    <img class="cat-cover" src={withBase(image)} alt={alt} loading="lazy" width="400" height="150" />
   ) : (
     <div class="cat-cover" style={`background:${cover};`}></div>
   )}

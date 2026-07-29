@@ -20,10 +20,15 @@ interface Props {
   };
 }
 
+import { withBase } from '../lib/url';
+
 const { title, description, image, imageAlt, article } = Astro.props;
 
+// `Astro.url.pathname` ya incluye la base en el build => canonical correcto.
+// Las imágenes vienen sin prefijo (rutas del JSON), así que se prefijan con
+// `withBase` antes de resolverlas contra `Astro.site` (el dominio pelado).
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const ogImage = new URL(image ?? '/images/og-default.png', Astro.site).href;
+const ogImage = new URL(withBase(image ?? '/images/og-default.png'), Astro.site).href;
 const siteName = 'OrganizaTuHogar';
 
 const schema = article
@@ -43,7 +48,7 @@ const schema = article
         name: siteName,
         logo: {
           '@type': 'ImageObject',
-          url: new URL('/images/logo.png', Astro.site).href,
+          url: new URL(withBase('/images/logo.png'), Astro.site).href,
         },
       },
     }
@@ -85,6 +90,6 @@ const schema = article
   rel="stylesheet"
 />
 
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href={withBase('/sitemap-index.xml')} />
 
 {schema && <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />}

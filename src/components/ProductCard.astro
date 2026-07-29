@@ -8,6 +8,7 @@ import type { Producto, PriceTagVariant } from '../types';
 import PriceTag from './PriceTag.astro';
 import { withAffiliateTag } from '../lib/amazon';
 import { imageExists } from '../lib/images';
+import { withBase } from '../lib/url';
 
 interface Props {
   producto: Producto;
@@ -24,7 +25,7 @@ const href = withAffiliateTag(producto.enlace_amazon);
   <div class="card-img-slot">
     <div class="card-img-wrap">
       {hasImage ? (
-        <img class="card-img" src={producto.imagen} alt={producto.alt_text} loading="lazy" width="200" height="200" />
+        <img class="card-img" src={withBase(producto.imagen)} alt={producto.alt_text} loading="lazy" width="200" height="200" />
       ) : (
         <div class="card-img foto-placeholder" role="img" aria-label={producto.alt_text}>
           <span>foto: {producto.nombre}</span>

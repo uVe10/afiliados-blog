@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://organizatuhogar.net/sitemap-index.xml
+Sitemap: https://uve10.github.io/afiliados-blog/sitemap-index.xml

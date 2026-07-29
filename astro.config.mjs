@@ -2,12 +2,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Dominio final comprado en Cloudflare. Deploy en GitHub Pages con dominio
-// personalizado => base '/' (no subruta). Si algún día se sirviera desde
-// usuario.github.io/repo, cambiar `base` a '/repo/'.
+// Deploy en GitHub Pages como repo de proyecto => se sirve bajo la subruta
+// https://uve10.github.io/afiliados-blog/. Por eso `base` lleva el nombre del
+// repo y `site` es el dominio de github.io (para canonical/OG/sitemap absolutos).
+// Si algún día se activa el dominio propio en la raíz, poner base '/', site al
+// dominio y volver a crear public/CNAME.
 export default defineConfig({
-  site: 'https://organizatuhogar.net',
-  base: '/',
+  site: 'https://uve10.github.io',
+  base: '/afiliados-blog/',
   trailingSlash: 'ignore',
   build: {
     format: 'directory',
