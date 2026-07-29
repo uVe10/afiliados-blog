@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "images": "node scripts/convert-images.mjs"
+    "images": "node scripts/convert-images.mjs",
+    "assets": "node scripts/gen-brand-assets.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

@@ -9,13 +9,15 @@ interface Props {
   description: string;
   image?: string;
   imageAlt?: string;
+  /** Titular del Schema (H1 visible). Ver BaseHead. */
+  headline?: string;
   article?: {
     publishedTime: string;
     modifiedTime: string;
   };
 }
 
-const { title, description, image, imageAlt, article } = Astro.props;
+const { title, description, image, imageAlt, headline, article } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,6 +28,7 @@ const { title, description, image, imageAlt, article } = Astro.props;
       description={description}
       image={image}
       imageAlt={imageAlt}
+      headline={headline}
       article={article}
     />
   </head>

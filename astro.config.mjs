@@ -2,14 +2,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Deploy en GitHub Pages como repo de proyecto => se sirve bajo la subruta
-// https://uve10.github.io/afiliados-blog/. Por eso `base` lleva el nombre del
-// repo y `site` es el dominio de github.io (para canonical/OG/sitemap absolutos).
-// Si algún día se activa el dominio propio en la raíz, poner base '/', site al
-// dominio y volver a crear public/CNAME.
+// Deploy en GitHub Pages con dominio propio (public/CNAME) => se sirve en la
+// raíz del dominio, por eso `base` es '/'. `site` es el dominio final, usado
+// para canonical/OG/sitemap absolutos. `withBase()` es no-op con base '/'.
+// Si se volviera a servir desde usuario.github.io/repo, poner base '/repo/',
+// site al dominio de github.io y borrar public/CNAME.
 export default defineConfig({
-  site: 'https://uve10.github.io',
-  base: '/afiliados-blog/',
+  site: 'https://organizatuhogar.net',
+  base: '/',
   trailingSlash: 'ignore',
   build: {
     format: 'directory',

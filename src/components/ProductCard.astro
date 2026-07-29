@@ -18,7 +18,10 @@ interface Props {
 
 const { producto, id, variant = 'A' } = Astro.props;
 const hasImage = imageExists(producto.imagen);
-const href = withAffiliateTag(producto.enlace_amazon);
+// Guardia defensiva: sin enlace de afiliado no renderizamos un CTA con href
+// vacío (recargaría la página y no llevaría a Amazon). Se muestra deshabilitado.
+const hasLink = Boolean(producto.enlace_amazon?.trim());
+const href = hasLink ? withAffiliateTag(producto.enlace_amazon) : undefined;
 ---
 
 <article id={id} class="card">
@@ -54,9 +57,15 @@ const href = withAffiliateTag(producto.enlace_amazon);
       ))}
     </ul>
 
-    <a class="card-cta" href={href} rel="sponsored nofollow noopener" target="_blank">
-      Ver en Amazon
-    </a>
+    {hasLink ? (
+      <a class="card-cta" href={href} rel="sponsored nofollow noopener" target="_blank">
+        Ver en Amazon
+      </a>
+    ) : (
+      <span class="card-cta card-cta--disabled" role="link" aria-disabled="true">
+        Enlace no disponible
+      </span>
+    )}
   </div>
 </article>
 
@@ -192,5 +201,11 @@ const href = withAffiliateTag(producto.enlace_amazon);
   .card-cta:hover {
     background: var(--mustard-dark);
     text-decoration: none;
+  }
+  .card-cta--disabled {
+    background: var(--divider);
+    color: var(--ink-muted);
+    cursor: not-allowed;
+    pointer-events: none;
   }
 </style>

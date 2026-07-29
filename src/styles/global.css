@@ -9,8 +9,10 @@
   --bg: #faf7f2;        /* fondo lienzo / bloques suaves */
   --surface: #ffffff;   /* tarjetas */
   --ink: #2b2620;       /* tinta / texto */
-  --sage: #6b7860;      /* verde salvia (enlaces, acentos) */
-  --sage-dark: #556450; /* salvia hover */
+  --ink-muted: #635e56; /* texto secundario, contraste AA (>=4.5:1) sobre claros */
+  --sage: #6b7860;      /* verde salvia SOLO decorativo/iconos (AA large 3:1) */
+  --sage-dark: #556450; /* salvia para texto: AA (~5.7:1 sobre claros) */
+  --sage-darker: #45513e; /* salvia hover de texto */
   --mustard: #c08a3e;   /* mostaza (CTA, etiqueta precio) */
   --mustard-dark: #a87730;
   --divider: #d9d2c7;   /* divisores / bordes */
@@ -52,11 +54,11 @@ h1, h2, h3 {
 }
 
 a {
-  color: var(--sage);
+  color: var(--sage-dark);
   text-decoration: none;
 }
 a:hover {
-  color: var(--sage-dark);
+  color: var(--sage-darker);
   text-decoration: underline;
 }
 

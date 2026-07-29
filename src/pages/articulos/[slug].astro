@@ -41,6 +41,7 @@ const productos = art.productos.map((p, i) => {
   description={art.meta_descripcion}
   image={art.imagen_portada}
   imageAlt={art.portada_alt}
+  headline={art.titulo_articulo}
   article={{ publishedTime: art.fecha_publicacion, modifiedTime: art.fecha_modificacion }}
 >
   <main class="article">
@@ -196,8 +197,7 @@ const productos = art.productos.map((p, i) => {
   }
   .meta {
     font-size: 13px;
-    color: var(--ink);
-    opacity: 0.55;
+    color: var(--ink-muted);
     margin: 0 0 16px;
   }
   .intro {

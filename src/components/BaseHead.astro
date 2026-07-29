@@ -13,16 +13,21 @@ interface Props {
   /** Ruta local del og:image, p. ej. "/images/cocina/portada.webp". */
   image?: string;
   imageAlt?: string;
+  /**
+   * Titular del Schema. Debe coincidir con el H1 visible del artículo
+   * (`titulo_articulo`), no con el `meta_titulo` (que lleva sufijo de marca).
+   */
+  headline?: string;
   /** Si es un artículo, emite BlogPosting + og:type=article. */
   article?: {
-    publishedTime: string; // ISO
-    modifiedTime: string; // ISO
+    publishedTime: string; // Fecha ISO (YYYY-MM-DD o ISO completo)
+    modifiedTime: string; // Fecha ISO (YYYY-MM-DD o ISO completo)
   };
 }
 
 import { withBase } from '../lib/url';
 
-const { title, description, image, imageAlt, article } = Astro.props;
+const { title, description, image, imageAlt, headline, article } = Astro.props;
 
 // `Astro.url.pathname` ya incluye la base en el build => canonical correcto.
 // Las imágenes vienen sin prefijo (rutas del JSON), así que se prefijan con
@@ -30,19 +35,30 @@ const { title, description, image, imageAlt, article } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(withBase(image ?? '/images/og-default.png'), Astro.site).href;
 const siteName = 'OrganizaTuHogar';
+// URL absoluta de la home real (incluye la base), para author/publisher.
+const siteUrl = new URL(withBase('/'), Astro.site).href;
+
+// Normaliza fechas (YYYY-MM-DD) a ISO 8601 completo con zona, para el Schema
+// y las metaetiquetas de artículo. Si ya viene con hora, se respeta.
+const toISO = (d: string): string => {
+  const parsed = new Date(d);
+  return Number.isNaN(parsed.valueOf()) ? d : parsed.toISOString();
+};
+const publishedISO = article ? toISO(article.publishedTime) : '';
+const modifiedISO = article ? toISO(article.modifiedTime) : '';
 
 const schema = article
   ? {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
-      headline: title,
+      headline: headline ?? title,
       description,
       image: ogImage,
-      datePublished: article.publishedTime,
-      dateModified: article.modifiedTime,
+      datePublished: publishedISO,
+      dateModified: modifiedISO,
       inLanguage: 'es-ES',
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
-      author: { '@type': 'Organization', name: siteName, url: Astro.site?.href },
+      author: { '@type': 'Organization', name: siteName, url: siteUrl },
       publisher: {
         '@type': 'Organization',
         name: siteName,
@@ -73,8 +89,8 @@ const schema = article
 <meta property="og:image" content={ogImage} />
 <meta property="og:locale" content="es_ES" />
 {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
-{article && <meta property="article:published_time" content={article.publishedTime} />}
-{article && <meta property="article:modified_time" content={article.modifiedTime} />}
+{article && <meta property="article:published_time" content={publishedISO} />}
+{article && <meta property="article:modified_time" content={modifiedISO} />}
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
