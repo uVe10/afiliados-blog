@@ -120,6 +120,12 @@ const privacidadHref = withBase('/privacidad');
     border-radius: 10px;
     box-shadow: var(--sombra-card);
   }
+  /* El atributo `hidden` se aplica vía JS para ocultar el banner. Sin esta
+     regla, `.cookie-consent { display: flex }` (estilo de autor) gana sobre el
+     `[hidden] { display: none }` del user-agent, y el banner nunca se oculta. */
+  .cookie-consent[hidden] {
+    display: none;
+  }
   @media (min-width: 560px) {
     .cookie-consent {
       flex-direction: row;
