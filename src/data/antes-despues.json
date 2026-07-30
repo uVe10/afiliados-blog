@@ -46,6 +46,20 @@
       "enlace_amazon": "https://amzn.to/4xq8WlB"
     },
     {
+      "nombre": "Organizador de Cables Bajo Escritorio PAVSTINE",
+      "imagen": "/images/antes-despues/organizador-cables.webp",
+      "alt_text": "Comparación antes y después bajo un escritorio: arriba organizado con bandeja metálica y cables recogidos, abajo desordenado con cables sueltos",
+      "precio_texto": "15,99€",
+      "rating_texto": "4,4 · 462 valoraciones",
+      "descripcion": "Una bandeja metálica tipo rejilla que se instala bajo el escritorio con dos soportes en forma de U, sin necesidad de taladrar la mesa. Sujeta la regleta y agrupa los cables sueltos que normalmente cuelgan visibles bajo cualquier mesa de trabajo, dejando el suelo y la zona bajo el escritorio completamente despejados. Es una de las mejoras más rápidas de instalar (requiere montaje básico) para cualquier rincón de teletrabajo en casa.",
+      "pros": [
+        "Se instala sin taladrar la mesa",
+        "Sujeta regleta y cables en una sola bandeja ventilada",
+        "Montaje sencillo, ideal para zonas de teletrabajo"
+      ],
+      "enlace_amazon": "https://amzn.to/4fJLw3g"
+    },
+    {
       "nombre": "Organizador de Escritorio D.RECT",
       "imagen": "/images/antes-despues/escritorio.webp",
       "alt_text": "Organizador de escritorio metálico de malla negra con bolígrafos y notas ordenadas",
@@ -58,6 +72,20 @@
         "Base plana adicional para notas y papeles"
       ],
       "enlace_amazon": "https://amzn.to/4vQNN2w"
+    },
+    {
+      "nombre": "Cajones Apilables de Maquillaje Vtopmart (Pack 3)",
+      "imagen": "/images/antes-despues/cajones-maquillaje.webp",
+      "alt_text": "Comparación antes y después de un tocador de baño: arriba organizado con cajones apilables transparentes, abajo desordenado con maquillaje esparcido sobre mármol",
+      "precio_texto": "28,99€",
+      "rating_texto": "4,7 · 20.122 valoraciones",
+      "descripcion": "Con más de 20.000 valoraciones, es de los productos de organización de baño más contrastados de todo Amazon España. El set incluye dos cajones pequeños apilados y uno grande debajo, todos en acrílico transparente con asa integrada en forma de U, pensados para guardar maquillaje, cremas o pequeños accesorios de aseo sin que se amontonen sobre la encimera. Al ser transparentes, permiten localizar cada producto de un vistazo, y su diseño apilable se adapta tanto a tocadores amplios como a baños pequeños.",
+      "pros": [
+        "Más de 20.000 valoraciones, de los más contrastados de la categoría",
+        "2 cajones pequeños + 1 grande, totalmente transparentes",
+        "Asa integrada en forma de U para abrir con una mano"
+      ],
+      "enlace_amazon": "https://amzn.to/3TrlQkA"
     }
   ]
 }

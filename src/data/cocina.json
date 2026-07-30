@@ -46,6 +46,20 @@
       "enlace_amazon": "https://www.amazon.es/Vtopmart-Recipientes-Almacenamiento-Alimentos-Herm%C3%A9tica/dp/B08FCBS8SY?tag=organizatuh08-21&linkCode=as4&ref_=onb_gen_lnk"
     },
     {
+      "nombre": "Mini Cubo de Basura Plegable BanYakong (3L)",
+      "imagen": "/images/cocina/cubo-plegable.webp",
+      "alt_text": "Mini cubo de basura plegable gris colgado en la puerta de un armario de cocina, con verduras frescas visibles sobre la encimera",
+      "precio_texto": "9,41€",
+      "rating_texto": "4,5 · 1.261 valoraciones",
+      "descripcion": "Un mini cubo de basura de 3 litros con forma en D, pensado para colgarse directamente del borde de una puerta de armario mediante un simple gancho, sin necesidad de atornillar nada. Resulta especialmente útil colocado justo debajo de la encimera, para tirar restos de comida mientras se cocina sin tener que moverse hasta el cubo principal. Es plegable, por lo que ocupa un mínimo espacio cuando no está en uso, y su precio con un 37% de descuento lo convierte en una de las compras más económicas de toda la comparativa.",
+      "pros": [
+        "Se cuelga sin taladrar, con gancho simple",
+        "Plegable, ocupa un mínimo espacio",
+        "Precio muy competitivo con descuento del 37%"
+      ],
+      "enlace_amazon": "https://amzn.to/4h5sC9m"
+    },
+    {
       "nombre": "Organizador de Cajón Expandible Lifewit",
       "imagen": "/images/cocina/cajon-expandible.webp",
       "alt_text": "Cajón de cocina organizado con bandeja expandible negra, cubiertos agrupados por tipo en compartimentos separados",
@@ -58,6 +72,20 @@
         "Una de las mejores valoraciones de su categoría"
       ],
       "enlace_amazon": "https://www.amazon.es/Lifewit-Organizador-cubiertos-profundidad-organizador/dp/B0FBKT9DV9?tag=organizatuh08-21&linkCode=as4&ref_=onb_gen_lnk"
+    },
+    {
+      "nombre": "Organizador de Sartenes y Tapas Toplife (10 compartimentos)",
+      "imagen": "/images/cocina/organizador-sartenes.webp",
+      "alt_text": "Organizador metálico negro con compartimentos ondulados sosteniendo sartenes de colores y tapas de ollas de pie en un armario de cocina",
+      "precio_texto": "16,99€",
+      "rating_texto": "4,4 · 6.345 valoraciones",
+      "descripcion": "Un soporte metálico con divisores ondulados que crean 10 compartimentos individuales, pensado para el armario donde sartenes y tapas se apilan unas sobre otras hasta que ya no cierra la puerta. Su base ajustable en dos módulos permite adaptar la longitud al ancho exacto del mueble, y mantiene cada sartén de pie y separada, evitando que las superficies antiadherentes se rayen entre sí con el roce. Con 100 o más unidades vendidas el mes previo a esta comparativa, es una opción con demanda activa y confirmada.",
+      "pros": [
+        "10 compartimentos con divisores ondulados ajustables",
+        "Base extensible en dos módulos, se adapta al mueble",
+        "Evita que las sartenes antiadherentes se rayen entre sí"
+      ],
+      "enlace_amazon": "https://amzn.to/4fIr4j4"
     },
     {
       "nombre": "Organizador Bajo Fregadero Puricon",
