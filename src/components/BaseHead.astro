@@ -81,24 +81,9 @@ const schema = article
 <meta name="robots" content="index, follow" />
 
 <!-- Verificación de dominio Pinterest -->
+<!-- El Pinterest Tag NO se carga aquí: se activa solo tras el consentimiento
+     del usuario en el banner de cookies (ver src/components/CookieConsent.astro). -->
 <meta name="p:domain_verify" content="8b877c585887f90cd1fc0a6875679bae" />
-
-<!-- Pinterest Tag -->
-<script is:inline>
-!function(e){if(!window.pintrk){window.pintrk = function () {
-window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
-n=window.pintrk;n.queue=[],n.version="3.0";var
-t=document.createElement("script");t.async=!0,t.src=e;var
-r=document.getElementsByTagName("script")[0];
-r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
-pintrk('load', '2612597048782');
-pintrk('page');
-</script>
-<noscript>
-<img height="1" width="1" style="display:none;" alt=""
-src="https://ct.pinterest.com/v3/?event=init&tid=2612597048782&noscript=1" />
-</noscript>
-<!-- end Pinterest Tag -->
 
 <!-- Favicons (paquete generado con favicon.io, en /public) -->
 <link rel="icon" type="image/x-icon" href={withBase('/favicon.ico')} />

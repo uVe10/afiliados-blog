@@ -1,6 +1,9 @@
 ---
 /** Pie con la divulgación obligatoria de afiliados de Amazon + Pinterest. */
-const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
+import { withBase } from '../lib/url';
+
+const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarOficial';
+const privacidadHref = withBase('/privacidad');
 ---
 
 <footer class="site-footer">
@@ -9,7 +12,10 @@ const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
     que cumplen los requisitos aplicables. Esto no supone ningún coste
     adicional para ti.
   </p>
-  <a href={PINTEREST} rel="noopener" class="pinterest">Síguenos en Pinterest →</a>
+  <nav class="footer-links" aria-label="Enlaces legales">
+    <a href={PINTEREST} rel="noopener" class="pinterest">Síguenos en Pinterest →</a>
+    <a href={privacidadHref} class="privacy">Política de Privacidad</a>
+  </nav>
 </footer>
 
 <style>
@@ -30,7 +36,13 @@ const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarConIdeas';
     margin: 0 0 10px;
     font-style: italic;
   }
-  .pinterest {
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  .pinterest,
+  .privacy {
     font-size: 13px;
     font-weight: 700;
     color: var(--sage-dark);

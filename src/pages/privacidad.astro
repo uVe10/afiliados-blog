@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const PINTEREST_PRIVACY = 'https://policy.pinterest.com/es/privacy-policy';
+const AMAZON_PRIVACY =
+  'https://www.amazon.es/gp/help/customer/display.html?nodeId=201909010';
+const CONTACT_EMAIL = 'contacto@organizatuhogar.net';
+---
+
+<BaseLayout
+  title="Política de Privacidad — OrganizaTuHogar"
+  description="Cómo tratamos la privacidad en OrganizaTuHogar: cookies del Pinterest Tag, enlaces de afiliado de Amazon.es y datos de contacto."
+>
+  <main class="legal">
+    <h1>Política de Privacidad</h1>
+
+    <p class="lead">
+      Última actualización: julio de 2026. En esta página te explicamos qué es
+      OrganizaTuHogar y cómo tratamos tu privacidad cuando visitas el sitio.
+    </p>
+
+    <h2>Qué es OrganizaTuHogar</h2>
+    <p>
+      OrganizaTuHogar es un blog dedicado a ideas y productos para la
+      organización del hogar. Publicamos comparativas y recomendaciones y, como
+      afiliados de Amazon, incluimos enlaces a productos en Amazon.es. Es un
+      sitio estático informativo: no dispone de registro de usuarios ni de
+      formularios que recojan datos personales.
+    </p>
+
+    <h2>Qué cookies utilizamos</h2>
+    <p>
+      Utilizamos el <strong>Pinterest Tag</strong>, una herramienta de medición
+      de Pinterest que nos permite conocer el origen de las visitas que llegan
+      desde Pinterest. Este servicio puede instalar cookies en tu navegador con
+      fines de medición y analítica.
+    </p>
+    <p>
+      El Pinterest Tag <strong>solo se activa si aceptas el banner de cookies</strong>
+      que aparece la primera vez que visitas el sitio. Si lo rechazas, o mientras
+      no respondas, no se carga ni se ejecuta. Puedes consultar cómo trata tus
+      datos Pinterest en su
+      <a href={PINTEREST_PRIVACY} rel="noopener nofollow" target="_blank"
+        >política de privacidad de Pinterest</a
+      >.
+    </p>
+
+    <h2>Datos personales</h2>
+    <p>
+      OrganizaTuHogar <strong>no recoge datos personales directamente</strong>:
+      no tenemos formularios de contacto, registro ni suscripción en el propio
+      sitio. Los únicos datos que pueden tratarse son los que gestionan los
+      servicios de terceros mencionados en esta página (Pinterest y Amazon),
+      cada uno bajo su propia política.
+    </p>
+
+    <h2>Enlaces de afiliado</h2>
+    <p>
+      Los enlaces a productos de este sitio son <strong>enlaces de afiliado de
+      Amazon</strong> y llevan a <strong>Amazon.es</strong>. Como afiliados de
+      Amazon, obtenemos ingresos por las compras que cumplen los requisitos
+      aplicables, sin coste adicional para ti. Cuando haces clic en uno de estos
+      enlaces y navegas por Amazon.es, se aplica la
+      <a href={AMAZON_PRIVACY} rel="noopener nofollow" target="_blank"
+        >política de privacidad de Amazon</a
+      >.
+    </p>
+
+    <h2>Contacto</h2>
+    <p>
+      Para cualquier consulta sobre esta política o sobre el sitio, puedes
+      escribirnos a <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding: 48px 16px 64px;
+    max-width: 720px;
+  }
+  @media (min-width: 720px) {
+    .legal {
+      padding: 64px 48px 96px;
+    }
+  }
+  .legal h1 {
+    font-weight: 800;
+    font-size: 28px;
+    margin: 0 0 12px;
+  }
+  @media (min-width: 720px) {
+    .legal h1 {
+      font-size: 40px;
+    }
+  }
+  .legal h2 {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 32px 0 8px;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--ink-muted);
+    margin: 0 0 8px;
+  }
+  .legal p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0 0 12px;
+  }
+</style>
