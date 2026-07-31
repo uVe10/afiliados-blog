@@ -31,6 +31,16 @@
   box-sizing: border-box;
 }
 
+/*
+ * El atributo `hidden` debe ganar SIEMPRE. Sin esto, cualquier regla de autor
+ * con `display` (p. ej. `.quick-row { display: grid }` o un spinner con
+ * `display: flex`) anula el `display: none` del user-agent y el elemento
+ * "oculto" sigue visible. `!important` es la forma estándar de garantizarlo.
+ */
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }

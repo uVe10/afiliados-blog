@@ -22,70 +22,72 @@
       "imagen": "/images/antes-despues/separadores-cajon.webp",
       "alt_text": "Comparación de un cajón de armario antes y después: arriba organizado con separadores blancos y ropa doblada en secciones, abajo desordenado sin separadores",
       "precio_texto": "24,99€",
+      "precio_valor": 24.99,
       "rating_texto": "4,5 · 5.871 valoraciones",
+      "rating_valor": 4.5,
+      "num_valoraciones": 5871,
       "descripcion": "Estos paneles blancos ajustables (de 28 a 40 cm) se instalan verticalmente dentro de un cajón mediante un mecanismo telescópico, sin necesidad de tornillos ni herramientas. Dividen el espacio en secciones que mantienen la ropa doblada en vertical, evitando que se mezcle o se desordene al abrir y cerrar el cajón varias veces al día. Es de los productos que más contraste genera en una foto de antes y después, porque el cambio de un cajón caótico a uno con secciones perfectamente definidas es inmediato.",
       "pros": [
         "Ajustable de 28 a 40 cm sin herramientas",
         "Pack de 5 paneles, cubre un cajón completo",
         "Mantiene la ropa doblada en vertical y visible"
       ],
-      "enlace_amazon": "https://www.amazon.es/Lifewit-Separadores-organizadores-separadores-expandibles/dp/B0C4L9MTB7?tag=organizatuh08-21&linkCode=as4&ref_=onb_gen_lnk"
+      "asin": "B0C4L9MTB7",
+      "enlace_amazon": "https://www.amazon.es/Lifewit-Separadores-organizadores-separadores-expandibles/dp/B0C4L9MTB7?th=1&linkCode=ll2&tag=organizatuh08-21&linkId=fa558687488adb9e8eaaa20499f9b574&ref_=as_li_ss_tl"
     },
     {
       "nombre": "Organizador de Cajones de Baño Vtopmart (15 piezas)",
       "imagen": "/images/antes-despues/cajones-bano.webp",
       "alt_text": "Comparación antes y después de un cajón de baño: organizado con bandejas transparentes de distintos tamaños y desordenado sin separadores",
       "precio_texto": "13,99€",
+      "precio_valor": 13.99,
       "rating_texto": "4,6 · 13.099 valoraciones",
+      "rating_valor": 4.6,
+      "num_valoraciones": 13099,
       "descripcion": "Un set de 15 bandejas acrílicas transparentes en 4 tamaños distintos, pensadas para encajar entre sí como un puzzle dentro de cualquier cajón de baño o tocador. Con más de 13.000 valoraciones, es una opción muy consolidada para separar maquillaje, artículos de higiene o pequeños accesorios que normalmente acaban amontonados. Al ser transparente, cada bandeja permite localizar el contenido sin tener que sacarlas todas.",
       "pros": [
         "Set de 15 piezas en 4 tamaños combinables",
         "Transparente, facilita encontrar cada producto",
         "Precio muy competitivo para el volumen de piezas"
       ],
-      "enlace_amazon": "https://amzn.to/4xq8WlB"
-    },
-    {
-      "nombre": "Organizador de Cables Bajo Escritorio PAVSTINE",
-      "imagen": "/images/antes-despues/organizador-cables.webp",
-      "alt_text": "Comparación antes y después bajo un escritorio: arriba organizado con bandeja metálica y cables recogidos, abajo desordenado con cables sueltos",
-      "precio_texto": "15,99€",
-      "rating_texto": "4,4 · 462 valoraciones",
-      "descripcion": "Una bandeja metálica tipo rejilla que se instala bajo el escritorio con dos soportes en forma de U, sin necesidad de taladrar la mesa. Sujeta la regleta y agrupa los cables sueltos que normalmente cuelgan visibles bajo cualquier mesa de trabajo, dejando el suelo y la zona bajo el escritorio completamente despejados. Es una de las mejoras más rápidas de instalar (requiere montaje básico) para cualquier rincón de teletrabajo en casa.",
-      "pros": [
-        "Se instala sin taladrar la mesa",
-        "Sujeta regleta y cables en una sola bandeja ventilada",
-        "Montaje sencillo, ideal para zonas de teletrabajo"
-      ],
-      "enlace_amazon": "https://amzn.to/4fJLw3g"
+      "asin": "B0C4L9MTB7",
+      "enlace_amazon": "https://www.amazon.es/Lifewit-Separadores-organizadores-separadores-expandibles/dp/B0C4L9MTB7?th=1&linkCode=ll2&tag=organizatuh08-21&linkId=fa558687488adb9e8eaaa20499f9b574&ref_=as_li_ss_tl"
     },
     {
       "nombre": "Organizador de Escritorio D.RECT",
       "imagen": "/images/antes-despues/escritorio.webp",
       "alt_text": "Organizador de escritorio metálico de malla negra con bolígrafos y notas ordenadas",
       "precio_texto": "8,39€",
+      "precio_valor": 8.39,
       "rating_texto": "4,5 · 1.226 valoraciones",
+      "rating_valor": 4.5,
+      "num_valoraciones": 1226,
       "descripcion": "Un organizador de malla metálica con estructura escalonada: una bandeja plana en la base para notas o papeles, y tres compartimentos de distinta altura para bolígrafos, rotuladores y marcadores. Es la opción más económica de esta selección y también la que introduce más variedad de material en una comparativa dominada por plástico y tela, aportando un acabado más robusto para el escritorio o zona de teletrabajo.",
       "pros": [
         "El más económico de la selección, menos de 9€",
         "Estructura escalonada con 3 alturas distintas",
         "Base plana adicional para notas y papeles"
       ],
-      "enlace_amazon": "https://amzn.to/4vQNN2w"
+      "asin": "B08PP91S5J",
+      "enlace_amazon": "https://www.amazon.es/D-RECT-Organizador-escritorio-Portal%C3%A1pices-organizador/dp/B08PP91S5J?dib=eyJ2IjoiMSJ9.xCF3p6b6-pYj6uvD96-FcBYbkdb5JvcWGKmqzAmg9IQ4CX21K7RezE-BisLg9XtFVnIR6h-JqkbxdV71U-D7b1myg2Lf34ujUlZmmMs67TCB1TU9Wf1IraMCa1tEjZ9wI71vjO6LwcB7E-8OZRdC8fBNB64eabUTiIgYzB_RKsyaA6ljsfwb3TD0smKGZ0t1L3SyxWWjkC8vkFOeWtTG02pNN22Po2L-j4oWY8WwLa4FWiSICEc5tr1dVSAAmH3GNB9wj4JRD81RhBWR96S-bsP3ihox-hZOKjYCy0YdmJc.ePiaEmHg0GX_0HGdxN8UpgAr8caHISK3hPXNlYbyFrw&dib_tag=se&keywords=organizador%2Bescritorio%2Baccesorios%2Boficina&qid=1785223191&sr=8-9&th=1&linkCode=ll2&tag=organizatuh08-21&linkId=78c711692597f8139f864449fa3653bf&ref_=as_li_ss_tl"
     },
     {
       "nombre": "Cajones Apilables de Maquillaje Vtopmart (Pack 3)",
       "imagen": "/images/antes-despues/cajones-maquillaje.webp",
       "alt_text": "Comparación antes y después de un tocador de baño: arriba organizado con cajones apilables transparentes, abajo desordenado con maquillaje esparcido sobre mármol",
       "precio_texto": "28,99€",
+      "precio_valor": 28.99,
       "rating_texto": "4,7 · 20.122 valoraciones",
+      "rating_valor": 4.7,
+      "num_valoraciones": 20122,
       "descripcion": "Con más de 20.000 valoraciones, es de los productos de organización de baño más contrastados de todo Amazon España. El set incluye dos cajones pequeños apilados y uno grande debajo, todos en acrílico transparente con asa integrada en forma de U, pensados para guardar maquillaje, cremas o pequeños accesorios de aseo sin que se amontonen sobre la encimera. Al ser transparentes, permiten localizar cada producto de un vistazo, y su diseño apilable se adapta tanto a tocadores amplios como a baños pequeños.",
       "pros": [
         "Más de 20.000 valoraciones, de los más contrastados de la categoría",
         "2 cajones pequeños + 1 grande, totalmente transparentes",
         "Asa integrada en forma de U para abrir con una mano"
       ],
-      "enlace_amazon": "https://amzn.to/3TrlQkA"
+      "asin": "B0CDXMVLVK",
+      "enlace_amazon": "https://www.amazon.es/Vtopmart-Almacenamiento-organizador-transparente-antideslizante/dp/B0CDXMVLVK?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&content-id=amzn1.sym.c440bdbb-c2b3-45ad-9c38-8dfbdda46983%3Aamzn1.sym.c440bdbb-c2b3-45ad-9c38-8dfbdda46983&crid=SSLVR9RNA75Q&cv_ct_cx=organizador%2Bmaquillaje%2Bcajones%2Bapilables%2Btocador&keywords=organizador%2Bmaquillaje%2Bcajones%2Bapilables%2Btocador&pd_rd_i=B0CDXMVLVK&pd_rd_r=935e520e-6319-490d-8ed5-8c5d4808237a&pd_rd_w=tBBLb&pd_rd_wg=CDXug&pf_rd_p=c440bdbb-c2b3-45ad-9c38-8dfbdda46983&pf_rd_r=3AADAV9ZA7WVBKMQDWZE&qid=1785391884&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=organizador%2Bmaquillaje%2Bcajones%2Bapilables%2Btocador%2Caps%2C97&sr=1-2-9ac51240-4b88-4e0c-aad1-ad3578b6cab1-spons&aref=Js6Q3J7Txw&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1&linkCode=ll2&tag=organizatuh08-21&linkId=435e71e75a8f3973788cbce3cf9e40db&ref_=as_li_ss_tl"
     }
   ]
 }

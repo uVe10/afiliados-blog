@@ -12,14 +12,28 @@ interface Props {
   image?: string;
   /** Texto alternativo de la imagen de portada. */
   alt?: string;
+  /**
+   * Marca esta portada como candidata a LCP (above-the-fold): carga eager con
+   * fetchpriority alto en vez de lazy. Solo debe activarse en la primera card.
+   */
+  priority?: boolean;
 }
 
-const { name, desc, href, cover, image, alt } = Astro.props;
+const { name, desc, href, cover, image, alt, priority = false } = Astro.props;
 ---
 
 <a class="cat" href={href}>
   {image ? (
-    <img class="cat-cover" src={withBase(image)} alt={alt} loading="lazy" width="400" height="150" />
+    <img
+      class="cat-cover"
+      src={withBase(image)}
+      alt={alt}
+      loading={priority ? 'eager' : 'lazy'}
+      fetchpriority={priority ? 'high' : 'auto'}
+      decoding={priority ? 'auto' : 'async'}
+      width="400"
+      height="150"
+    />
   ) : (
     <div class="cat-cover" style={`background:${cover};`}></div>
   )}

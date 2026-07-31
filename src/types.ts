@@ -22,8 +22,14 @@ export interface Producto {
   alt_text: string;
   /** Precio como texto visible, p. ej. "19,99€". Solo presentación. */
   precio_texto: string;
+  /** Precio numérico para filtrar (p. ej. 19.99). Derivado de `precio_texto`; nunca se muestra ni se emite en Schema.org. */
+  precio_valor: number;
   /** Valoración como texto visible, p. ej. "4,6 · 2.139 valoraciones". Solo presentación. */
   rating_texto: string;
+  /** Nota media numérica para filtrar (p. ej. 4.6). Derivado de `rating_texto`; solo filtrado, nunca Schema.org. */
+  rating_valor: number;
+  /** Número de valoraciones para filtrar (p. ej. 2139). Derivado de `rating_texto`; solo filtrado, nunca Schema.org. */
+  num_valoraciones: number;
   /** Párrafo introductorio / opinión de la card. */
   descripcion: string;
   /** Lista de ventajas ("+") mostradas en la card. */
@@ -34,6 +40,12 @@ export interface Producto {
    * `withAffiliateTag()` — no hace falta incluirlo aquí.
    */
   enlace_amazon: string;
+  /**
+   * ASIN de Amazon del producto (p. ej. "B0BR1S92ZJ"). Se usa para construir
+   * el enlace a la página de reseñas con `reviewsUrl()`. Opcional: si falta,
+   * el botón "Ver reseñas" simplemente no se renderiza (guardia defensiva).
+   */
+  asin?: string;
 }
 
 /** Un artículo tipo "comparativa" (uno por categoría / tablero de Pinterest). */

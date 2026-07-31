@@ -1,0 +1,256 @@
+---
+/**
+ * "Vista rápida": tabla en escritorio + lista de tarjetas en móvil.
+ *
+ * Componente ÚNICO reutilizado en dos sitios para que el estilo no diverja:
+ *  - dentro del artículo (`[slug].astro`), con enlaces de ancla local `#id`.
+ *  - en el buscador global de la home (`ProductSearch.astro`), con enlaces a
+ *    `/articulos/{slug}#id`.
+ *
+ * Cada fila acepta `attrs` (data-* arbitrarios) para que el consumidor enganche
+ * su propio filtrado: `data-search` (filtro del artículo) o `data-ps-*` (filtro
+ * numérico del buscador). El componente en sí no sabe nada de filtrado.
+ */
+import PriceTag from './PriceTag.astro';
+import { withBase } from '../lib/url';
+import type { PriceTagVariant } from '../types';
+
+export interface QuickViewItem {
+  nombre: string;
+  /** Ruta cruda de /public (el componente aplica `withBase`). */
+  imagen: string;
+  hasImage: boolean;
+  alt_text: string;
+  precio_texto: string;
+  rating_texto: string;
+  /** Enlace final ya resuelto por el consumidor (`#id` o ruta completa). */
+  href: string;
+  /** Categoría del producto. Solo se muestra si `showCategory` está activo. */
+  categoria?: string;
+  /** data-* extra por fila (filtrado del consumidor). */
+  attrs?: Record<string, string | number | boolean>;
+}
+
+interface Props {
+  items: QuickViewItem[];
+  variant?: PriceTagVariant;
+  /**
+   * Tope de altura (px) del contenedor con scroll interno. Igual en ambos
+   * layouts (tabla escritorio + tarjetas móvil). Se puede afinar por contexto:
+   * el buscador de la home usa el valor por defecto; el artículo pasa uno más
+   * ajustado a su nº de productos para que el scroll se note de verdad.
+   */
+  maxHeight?: number;
+  /**
+   * Muestra la categoría de cada producto (columna en escritorio + badge en
+   * móvil). Solo tiene sentido en el buscador global, donde se mezclan productos
+   * de varios artículos. Dentro de un artículo todos comparten categoría, así
+   * que se deja en `false` (por defecto) para no mostrar un dato redundante.
+   */
+  showCategory?: boolean;
+}
+
+const { items, variant = 'A', maxHeight = 460, showCategory = false } = Astro.props;
+const maxHeightStyle = `--qv-max-height: ${maxHeight}px`;
+---
+
+<div class={`quick-desktop${showCategory ? ' has-cat' : ''}`} style={maxHeightStyle}>
+  <div class="quick-head">
+    <span>PRODUCTO</span><span>PRECIO</span>
+    {showCategory && <span>CATEGORÍA</span>}
+    <span>VALORACIÓN</span><span></span>
+  </div>
+  {items.map((p) => (
+    <div class="quick-row" {...p.attrs}>
+      <span class="quick-name">
+        <span class="quick-thumb">
+          {p.hasImage ? (
+            <img src={withBase(p.imagen)} alt={p.alt_text} loading="lazy" width="48" height="48" />
+          ) : (
+            <div class="quick-thumb-ph foto-placeholder" aria-hidden="true"></div>
+          )}
+        </span>
+        <span class="quick-name-text">{p.nombre}</span>
+      </span>
+      <span><PriceTag precio={p.precio_texto} variant={variant} size="compact" /></span>
+      {showCategory && (
+        <span><span class="quick-cat">{p.categoria}</span></span>
+      )}
+      <span class="quick-rating">⭐ {p.rating_texto}</span>
+      <a href={p.href} class="quick-link">Ver detalle ↓</a>
+    </div>
+  ))}
+</div>
+<div class="quick-mobile" style={maxHeightStyle}>
+  {items.map((p) => (
+    <a href={p.href} class="quick-card" {...p.attrs}>
+      <div class="quick-thumb">
+        {p.hasImage ? (
+          <img src={withBase(p.imagen)} alt={p.alt_text} loading="lazy" width="44" height="44" />
+        ) : (
+          <div class="quick-thumb-ph foto-placeholder" aria-hidden="true"></div>
+        )}
+      </div>
+      <div class="quick-card-body">
+        <div class="quick-card-name">{p.nombre}</div>
+        <div class="quick-card-rating">⭐ {p.rating_texto}</div>
+      </div>
+      <PriceTag precio={p.precio_texto} variant={variant} size="compact" />
+    </a>
+  ))}
+</div>
+
+<style>
+  /* Vista rápida — escritorio (tabla) */
+  .quick-desktop {
+    display: none;
+  }
+  @media (min-width: 720px) {
+    .quick-desktop {
+      display: block;
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      background: var(--surface);
+      /* Altura máxima fija: si la categoría tiene muchos productos, el scroll
+         ocurre SOLO aquí (no desplaza la página). Mismo criterio que el
+         buscador de la home. `overflow-y: auto` ya recorta las esquinas
+         redondeadas, así que no hace falta `overflow: hidden`. */
+      max-height: var(--qv-max-height, 460px);
+      overflow-y: auto;
+    }
+  }
+  .quick-head,
+  .quick-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1.4fr 1fr;
+    align-items: center;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--divider);
+  }
+  /* Con la columna "Categoría" activa (solo buscador) se inserta una pista
+     extra entre PRECIO y VALORACIÓN. Header y filas comparten la misma rejilla. */
+  .quick-desktop.has-cat .quick-head,
+  .quick-desktop.has-cat .quick-row {
+    grid-template-columns: 2fr 1fr 1fr 1.4fr 1fr;
+  }
+  .quick-head {
+    /* Cabecera fija al hacer scroll dentro de la tabla. El fondo es opaco
+       (`var(--bg)`) para que las filas no se transparenten por debajo, y el
+       z-index la mantiene por encima de ellas. Solo existe en escritorio;
+       en móvil `.quick-desktop` está oculto, así que no afecta a las tarjetas. */
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 10px 18px;
+    background: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  /* El desvanecido va en el TEXTO, no en el contenedor: si aplicáramos
+     `opacity` a `.quick-head` el fondo dejaría de ser opaco y las filas se
+     verían por debajo al hacer scroll. */
+  .quick-head > span {
+    opacity: 0.6;
+  }
+  .quick-row:last-child {
+    border-bottom: none;
+  }
+  .quick-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .quick-name-text {
+    min-width: 0;
+  }
+  .quick-rating {
+    font-size: 13px;
+    opacity: 0.75;
+  }
+  .quick-link {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  /* Badge de categoría — solo en la tabla de escritorio (en móvil no se muestra). */
+  .quick-cat {
+    display: inline-block;
+    max-width: 100%;
+    padding: 3px 9px;
+    border: 1px solid var(--divider);
+    border-radius: 999px;
+    background: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.75;
+  }
+
+  /* Vista rápida — móvil (lista) */
+  .quick-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Mismo tope de altura + scroll interno que la tabla de escritorio. */
+    max-height: var(--qv-max-height, 460px);
+    overflow-y: auto;
+    padding-right: 2px;
+  }
+  @media (min-width: 720px) {
+    .quick-mobile {
+      display: none;
+    }
+  }
+  .quick-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--ink);
+  }
+  .quick-card:hover {
+    text-decoration: none;
+  }
+  .quick-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  /* La imagen (o el placeholder) rellena el frame 44×44 sin deformarse. */
+  .quick-thumb img,
+  .quick-thumb .quick-thumb-ph {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .quick-card-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .quick-card-name {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .quick-card-rating {
+    font-size: 12px;
+    opacity: 0.65;
+  }
+</style>

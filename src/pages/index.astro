@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryCard from '../components/CategoryCard.astro';
+import ProductSearch from '../components/ProductSearch.astro';
 import { navArticles } from '../lib/articles';
 import { imageExists } from '../lib/images';
 import { withBase } from '../lib/url';
@@ -34,15 +35,14 @@ const cats = navArticles.map((art, i) => ({
 
 <BaseLayout
   title="OrganizaTuHogar — Comparativas honestas de organización del hogar"
-  description="Comparativas honestas de productos de Amazon para organizar cocina, armario y espacios pequeños. Probados de verdad, sin relleno."
+  description="Comparativas honestas de productos de Amazon para el hogar — analizados y filtrados por la mejor calidad y precio, sin relleno."
   image="/images/og-default.png"
 >
   <main class="home">
     <section class="hero">
       <h1>Organiza tu casa sin complicarte</h1>
       <p class="hero-lead">
-        Comparativas honestas de productos de Amazon para cocina, armario y
-        espacios pequeños — probados de verdad, sin relleno.
+        Comparativas honestas de productos de Amazon para el hogar — analizados y filtrados por la mejor calidad y precio, sin relleno.
       </p>
       <p class="hero-sub">
         También estamos en <a href={PINTEREST} rel="noopener">Pinterest</a>, si
@@ -50,9 +50,11 @@ const cats = navArticles.map((art, i) => ({
       </p>
     </section>
 
+    <ProductSearch />
+
     <section class="cats">
-      {cats.map((c) => (
-        <CategoryCard name={c.name} desc={c.desc} href={c.href} cover={c.cover} image={c.image} alt={c.alt} />
+      {cats.map((c, i) => (
+        <CategoryCard name={c.name} desc={c.desc} href={c.href} cover={c.cover} image={c.image} alt={c.alt} priority={i === 0} />
       ))}
     </section>
   </main>

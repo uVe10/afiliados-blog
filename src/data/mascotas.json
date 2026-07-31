@@ -1,0 +1,53 @@
+{
+    "slug": "organizacion-mascotas",
+    "categoria": "Mascotas",
+    "ancla": "mascotas",
+    "orden": 6,
+    "titulo_articulo": "Organiza los Accesorios de tu Mascota sin que Invadan la Casa",
+    "meta_titulo": "Organización para Mascotas en Casa | OrganizaTuHogar",
+    "meta_descripcion": "Comederos, juguetes y accesorios de tu mascota siempre en su sitio. Organizadores de Amazon España pensados para hogares con perro o gato.",
+    "fecha_publicacion": "2026-07-31",
+    "fecha_modificacion": "2026-07-31",
+    "imagen_portada": "/images/mascotas/portada.webp",
+    "portada_alt": "Rincón de mascota organizado con comedero y accesorios ordenados",
+    "intro": "Entre juguetes, correas, comida y accesorios, las pertenencias de una mascota pueden acabar invadiendo cada rincón de la casa. Hemos seleccionado productos de Amazon España pensados específicamente para mantener todo eso organizado, sin que deje de estar a mano cuando lo necesitas.",
+    "resumen": "",
+    "productos": [
+        {
+            "nombre": "Contenedor Hermético para Pienso Nobleza (40L)",
+            "imagen": "/images/mascotas/contenedor-pienso.webp",
+            "alt_text": "Contenedor transparente con ruedas y tapa gris abatible almacenando pienso, con pala a juego, junto a un comedero de perro en el suelo",
+            "precio_texto": "29,74€",
+            "precio_valor": 29.74,
+            "rating_texto": "4,6 · 2.279 valoraciones",
+            "rating_valor": 4.6,
+            "num_valoraciones": 2279,
+            "descripcion": "Un contenedor de 40 litros con cuerpo transparente y tapa abatible hermética, pensado para mantener el pienso de perros o gatos protegido de la humedad y los insectos, sin perder frescura como ocurre con la bolsa original abierta. Incluye ruedas en la base para moverlo fácilmente entre la cocina y la despensa, y una pala a juego para servir la ración sin ensuciar. Al ser transparente, siempre se ve de un vistazo cuánto pienso queda, evitando quedarse sin comida por sorpresa.",
+            "pros": [
+                "40 litros de capacidad con cierre hermético",
+                "Incluye ruedas y pala a juego",
+                "Transparente, controla el nivel de pienso restante"
+            ],
+            "asin": "B0CB37B5YH",
+            "enlace_amazon": "https://www.amazon.es/Nobleza-Contenedor-Alimentos-herm%C3%A9tica-Transparente/dp/B0CB37B5YH?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=13AK0YQ8N774B&dib=eyJ2IjoiMSJ9.z2OgCBXZnh_VNXYA8HsqsMQhmz66zcDxne8d-WGgPco4RsYrcigai2iFYUgxVPDX1PPYmZDpv1_vVKVTlHyoBeKxblHAETwVZeRbwBf-al-Kp7Y_Vwwxxra4-PRYox2vkYLbqrQbF7bzpFb_Ignzfey2wYx_VGR7P0VFkRtapukkQsdnMu9XdCU4fo-EcP5wg9kpGbLTLHe5gx9_G2LdVyPddlBjWU4ge3e50wNchBYfQOW-PBtn0EXDjMvWnD7jxxY2DbPXh_GAnjhonkkDSN1fodZ4dVgEW9fpgvBRtnE.XMoJWokGC1vfk4EUG3UU940ffsxLzviIpEYh54_Pz1U&dib_tag=se&keywords=organizador%2Bcomida%2Bmascota%2Bcontenedor%2Bherm%C3%A9tico&qid=1785482299&sprefix=organizador%2Bcomida%2Bmascota%2Bcontenedor%2Bhermetico%2Caps%2C91&sr=8-1-spons&aref=jJ5C8juNRa&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=organizatuh08-21&linkId=a20dcfbefc2a2bb1cc421356c32ad53d&ref_=as_li_ss_tl"
+        },
+        {
+            "nombre": "Comedero Elevado para Perros X XBEN (5 alturas ajustables)",
+            "imagen": "/images/mascotas/comedero-elevado.webp",
+            "alt_text": "Comedero elevado blanco con dos cuencos metálicos de pienso y agua, altura ajustable, con un perro pequeño comiendo cómodamente al lado",
+            "precio_texto": "29,99€",
+            "precio_valor": 29.99,
+            "rating_texto": "4,5 · 2.281 valoraciones",
+            "rating_valor": 4.5,
+            "num_valoraciones": 2281,
+            "descripcion": "El producto más vendido en la categoría de platos elevados para perros de Amazon España. Su estructura ajustable en 5 alturas distintas permite adaptarlo tanto a perros pequeños como grandes, mejorando la postura al comer y beber. Incluye dos cuencos de acero inoxidable de 1,5L cada uno, extraíbles para lavar fácilmente, y patas antideslizantes que evitan que el conjunto se desplace mientras el perro come. Al mantener los cuencos elevados y fijos, evita también que se muevan por el suelo o se derrame el agua.",
+            "pros": [
+                "Producto Nº1 más vendido en su categoría en Amazon",
+                "5 alturas ajustables, para cualquier tamaño de perro",
+                "Cuencos de acero inoxidable extraíbles de 1,5L"
+            ],
+            "asin": "B0D8VWZVNV",
+            "enlace_amazon": "https://www.amazon.es/XBEN-Comedero-Ajustables-Comederos-Antideslizante/dp/B0D8VWZVNV?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&content-id=amzn1.sym.c440bdbb-c2b3-45ad-9c38-8dfbdda46983%3Aamzn1.sym.c440bdbb-c2b3-45ad-9c38-8dfbdda46983&crid=3MTLS1KHCXBC9&cv_ct_cx=comedero%2Belevado%2Bperro%2Bcon%2Balmacenaje&keywords=comedero%2Belevado%2Bperro%2Bcon%2Balmacenaje&pd_rd_i=B0D8VWZVNV&pd_rd_r=ce1a457b-1989-4795-a054-0ea00f02e6f8&pd_rd_w=74U3W&pd_rd_wg=KvOzl&pf_rd_p=c440bdbb-c2b3-45ad-9c38-8dfbdda46983&pf_rd_r=SRSA3TFQBPDBB3TKRCYW&qid=1785482776&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=comedero%2Belevado%2Bperro%2Bcon%2Balmacenaje%2Caps%2C103&sr=1-1-9ac51240-4b88-4e0c-aad1-ad3578b6cab1-spons&aref=VTEkq9Jv6r&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1&linkCode=ll2&tag=organizatuh08-21&linkId=e5013b9d79591b5e34d489b17ec01537&ref_=as_li_ss_tl"
+        }
+    ]
+}

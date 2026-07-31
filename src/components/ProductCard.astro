@@ -6,7 +6,7 @@
  */
 import type { Producto, PriceTagVariant } from '../types';
 import PriceTag from './PriceTag.astro';
-import { withAffiliateTag } from '../lib/amazon';
+import { withAffiliateTag, reviewsUrl } from '../lib/amazon';
 import { imageExists } from '../lib/images';
 import { withBase } from '../lib/url';
 
@@ -22,6 +22,9 @@ const hasImage = imageExists(producto.imagen);
 // vacío (recargaría la página y no llevaría a Amazon). Se muestra deshabilitado.
 const hasLink = Boolean(producto.enlace_amazon?.trim());
 const href = hasLink ? withAffiliateTag(producto.enlace_amazon) : undefined;
+// Botón secundario "Ver reseñas": solo si hay ASIN (mismo patrón defensivo).
+const hasReviews = Boolean(producto.asin?.trim());
+const reviewsHref = hasReviews ? reviewsUrl(producto.asin!.trim()) : undefined;
 ---
 
 <article id={id} class="card">
@@ -57,15 +60,22 @@ const href = hasLink ? withAffiliateTag(producto.enlace_amazon) : undefined;
       ))}
     </ul>
 
-    {hasLink ? (
-      <a class="card-cta" href={href} rel="sponsored nofollow noopener" target="_blank">
-        Ver en Amazon
-      </a>
-    ) : (
-      <span class="card-cta card-cta--disabled" role="link" aria-disabled="true">
-        Enlace no disponible
-      </span>
-    )}
+    <div class="card-actions">
+      {hasLink ? (
+        <a class="card-cta" href={href} rel="sponsored nofollow noopener" target="_blank">
+          Ver en Amazon
+        </a>
+      ) : (
+        <span class="card-cta card-cta--disabled" role="link" aria-disabled="true">
+          Enlace no disponible
+        </span>
+      )}
+      {hasReviews && (
+        <a class="card-cta card-cta--ghost" href={reviewsHref} rel="sponsored nofollow noopener" target="_blank">
+          Ver reseñas
+        </a>
+      )}
+    </div>
   </div>
 </article>
 
@@ -189,6 +199,11 @@ const href = hasLink ? withAffiliateTag(producto.enlace_amazon) : undefined;
     color: var(--sage);
     font-weight: 700;
   }
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
   .card-cta {
     display: inline-block;
     background: var(--mustard);
@@ -196,6 +211,7 @@ const href = hasLink ? withAffiliateTag(producto.enlace_amazon) : undefined;
     font-weight: 700;
     font-size: 14px;
     padding: 11px 22px;
+    border: 1px solid transparent;
     border-radius: 6px;
   }
   .card-cta:hover {
@@ -207,5 +223,16 @@ const href = hasLink ? withAffiliateTag(producto.enlace_amazon) : undefined;
     color: var(--ink-muted);
     cursor: not-allowed;
     pointer-events: none;
+  }
+  /* Acción secundaria: outline mostaza, para no competir con el CTA de compra. */
+  .card-cta--ghost {
+    background: transparent;
+    color: var(--mustard-dark);
+    border-color: var(--mustard);
+  }
+  .card-cta--ghost:hover {
+    background: var(--bg);
+    color: var(--mustard-dark);
+    text-decoration: none;
   }
 </style>

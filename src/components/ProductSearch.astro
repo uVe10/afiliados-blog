@@ -1,0 +1,338 @@
+---
+/**
+ * Buscador/filtro global de productos para la home.
+ *
+ * Autocontenido: se añade/quita/mueve con una sola línea en la página.
+ * Los productos de TODOS los artículos se agregan en build (`searchProducts`)
+ * y se renderizan server-side con el MISMO componente `QuickView` que usa la
+ * sección "Vista rápida" del artículo (markup/CSS/miniatura idénticos). El
+ * filtrado ocurre 100% en cliente ocultando/mostrando filas (no regenera HTML),
+ * así el estilo nunca diverge entre ambos sitios.
+ *
+ * Todos los filtros son AND y opcionales (campo vacío = no aplica).
+ */
+import QuickView from './QuickView.astro';
+import { searchProducts, searchCategories } from '../lib/searchProducts';
+
+// Cada fila lleva los data-* que necesita el filtro numérico del cliente.
+const items = searchProducts.map((p, i) => ({
+  nombre: p.nombre,
+  imagen: p.imagen,
+  hasImage: p.hasImage,
+  alt_text: p.alt_text,
+  precio_texto: p.precio_texto,
+  rating_texto: p.rating_texto,
+  href: p.href,
+  categoria: p.categoria,
+  attrs: {
+    'data-ps-idx': String(i),
+    'data-ps-name': p.nombre_norm,
+    'data-ps-precio': String(p.precio_valor),
+    'data-ps-rating': String(p.rating_valor),
+    'data-ps-nval': String(p.num_valoraciones),
+    'data-ps-cat': p.categoria,
+  },
+}));
+---
+
+<section class="ps" aria-labelledby="ps-title">
+  <h2 id="ps-title" class="ps-title">Busca en todos los productos</h2>
+  <p class="ps-sub">Filtra por nombre, precio, estrellas, valoraciones o categoría. Combínalos como quieras.</p>
+
+  <!-- Formulario: SIEMPRE visible, fuera del contenedor con scroll. -->
+  <form class="ps-form" data-ps-form novalidate>
+    <div class="ps-field ps-field--wide">
+      <label for="ps-q">Nombre</label>
+      <input id="ps-q" name="q" type="text" autocomplete="off" placeholder="ej. botes, especias, zapatero…" />
+    </div>
+    <div class="ps-field">
+      <label for="ps-precio">Precio máx. (€)</label>
+      <input id="ps-precio" name="precio" type="number" inputmode="decimal" min="0" step="0.01" placeholder="25" />
+    </div>
+    <div class="ps-field">
+      <label for="ps-estrellas">Estrellas mín.</label>
+      <input id="ps-estrellas" name="estrellas" type="number" inputmode="decimal" min="0" max="5" step="0.1" placeholder="4,5" />
+    </div>
+    <div class="ps-field">
+      <label for="ps-compradores">Valoraciones mín.</label>
+      <input id="ps-compradores" name="compradores" type="number" inputmode="numeric" min="0" step="1" placeholder="1000" />
+    </div>
+    <div class="ps-field">
+      <label for="ps-categoria">Categoría</label>
+      <select id="ps-categoria" name="categoria">
+        <option value="">Todas</option>
+        {searchCategories.map((c) => <option value={c}>{c}</option>)}
+      </select>
+    </div>
+    <div class="ps-actions">
+      <button type="submit" class="ps-btn ps-btn--cta" data-ps-submit>Buscar</button>
+      <button type="reset" class="ps-btn ps-btn--ghost" data-ps-clear>Limpiar</button>
+    </div>
+  </form>
+
+  <!-- Región viva: anuncia el estado de la búsqueda a lectores de pantalla. -->
+  <div class="ps-status" role="status" aria-live="polite">
+    <p class="ps-spinner" data-ps-spinner hidden>
+      <span class="ps-spinner-ring" aria-hidden="true"></span>
+      <span>Buscando productos…</span>
+    </p>
+    <p class="ps-summary" data-ps-summary hidden></p>
+  </div>
+
+  <!-- Resultados: mismo componente "Vista rápida". Oculto hasta la 1ª búsqueda.
+       El scroll interno (max-height) lo aporta QuickView, así el formulario no
+       se mueve y la cabecera de la tabla queda sticky. -->
+  <div class="ps-results" data-ps-results hidden>
+    <QuickView items={items} variant="A" showCategory={true} />
+  </div>
+  <p class="ps-empty" data-ps-empty hidden>No hay resultados.</p>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('.ps');
+  if (root) {
+    const form = root.querySelector<HTMLFormElement>('[data-ps-form]')!;
+    const results = root.querySelector<HTMLElement>('[data-ps-results]')!;
+    const empty = root.querySelector<HTMLElement>('[data-ps-empty]')!;
+    const spinner = root.querySelector<HTMLElement>('[data-ps-spinner]')!;
+    const summary = root.querySelector<HTMLElement>('[data-ps-summary]')!;
+    const submitBtn = root.querySelector<HTMLButtonElement>('[data-ps-submit]')!;
+    // Filas de AMBOS layouts (tabla escritorio + tarjetas móvil) del QuickView.
+    const rows = Array.from(root.querySelectorAll<HTMLElement>('[data-ps-idx]'));
+
+    const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+    // Parsea un input numérico: vacío -> null (filtro no aplica). Acepta coma.
+    const parseNum = (raw: string): number | null => {
+      const t = raw.trim().replace(',', '.');
+      if (t === '') return null;
+      const n = parseFloat(t);
+      return Number.isNaN(n) ? null : n;
+    };
+
+    // Aplica los filtros a cada fila, la oculta/muestra y devuelve nº de
+    // PRODUCTOS distintos que coinciden (cada producto tiene 2 filas: móvil+desktop).
+    function aplicarFiltros(): number {
+      const q = norm((form.elements.namedItem('q') as HTMLInputElement).value.trim());
+      const precioMax = parseNum((form.elements.namedItem('precio') as HTMLInputElement).value);
+      const estrellasMin = parseNum((form.elements.namedItem('estrellas') as HTMLInputElement).value);
+      const valoracionesMin = parseNum((form.elements.namedItem('compradores') as HTMLInputElement).value);
+      const categoria = (form.elements.namedItem('categoria') as HTMLSelectElement).value;
+
+      const matched = new Set<string>();
+      for (const el of rows) {
+        const d = el.dataset;
+        let ok = true;
+        if (q && !(d.psName ?? '').includes(q)) ok = false;
+        else if (precioMax !== null && parseFloat(d.psPrecio ?? '0') > precioMax) ok = false;
+        else if (estrellasMin !== null && parseFloat(d.psRating ?? '0') < estrellasMin) ok = false;
+        else if (valoracionesMin !== null && parseFloat(d.psNval ?? '0') < valoracionesMin) ok = false;
+        else if (categoria && d.psCat !== categoria) ok = false;
+        el.hidden = !ok;
+        if (ok) matched.add(d.psIdx ?? '');
+      }
+      return matched.size;
+    }
+
+    let searching = false;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (searching) return;
+      searching = true;
+
+      // Estado de carga: oculta resultados/resumen previos y muestra spinner.
+      results.hidden = true;
+      empty.hidden = true;
+      summary.hidden = true;
+      spinner.hidden = false;
+      submitBtn.disabled = true;
+
+      // Espera artificial de "búsqueda" (2,4 s) aunque el filtrado sea instantáneo.
+      window.setTimeout(() => {
+        const n = aplicarFiltros();
+
+        spinner.hidden = true;
+        submitBtn.disabled = false;
+        searching = false;
+
+        results.hidden = n === 0;
+        empty.hidden = n !== 0;
+        summary.textContent =
+          n === 0 ? 'Sin resultados.' : `${n} ${n === 1 ? 'producto encontrado' : 'productos encontrados'}.`;
+        summary.hidden = false;
+      }, 2400);
+    });
+
+    // "Limpiar": el reset nativo vacía los campos; volvemos al estado inicial.
+    form.addEventListener('reset', () => {
+      results.hidden = true;
+      empty.hidden = true;
+      spinner.hidden = true;
+      summary.hidden = true;
+      summary.textContent = '';
+      for (const el of rows) el.hidden = false; // filas listas para la próxima búsqueda
+    });
+  }
+</script>
+
+<style>
+  .ps {
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 28px;
+  }
+  @media (min-width: 720px) {
+    .ps {
+      padding: 24px;
+    }
+  }
+  .ps-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+  .ps-sub {
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin: 0 0 18px;
+  }
+
+  /* Formulario */
+  .ps-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  @media (min-width: 560px) {
+    .ps-form {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 900px) {
+    .ps-form {
+      grid-template-columns: repeat(4, 1fr);
+      align-items: end;
+    }
+    /* El buscador de texto ocupa la fila completa arriba. */
+    .ps-field--wide {
+      grid-column: 1 / -1;
+    }
+  }
+  .ps-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .ps-field label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    opacity: 0.6;
+  }
+  .ps-field input,
+  .ps-field select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    border-radius: 6px;
+  }
+  .ps-actions {
+    display: flex;
+    gap: 10px;
+    align-items: end;
+  }
+  @media (min-width: 900px) {
+    .ps-actions {
+      grid-column: 1 / -1;
+    }
+  }
+  .ps-btn {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 22px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .ps-btn--cta {
+    background: var(--mustard);
+    color: var(--ink);
+  }
+  .ps-btn--cta:hover {
+    background: var(--mustard-dark);
+  }
+  .ps-btn--cta:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .ps-btn--ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--divider);
+  }
+  .ps-btn--ghost:hover {
+    background: var(--bg);
+  }
+
+  /* Estado / spinner */
+  .ps-status {
+    margin-top: 8px;
+  }
+  .ps-spinner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin: 18px 0 0;
+  }
+  .ps-spinner-ring {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--divider);
+    border-top-color: var(--mustard);
+    border-radius: 50%;
+    animation: ps-spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes ps-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ps-spinner-ring {
+      animation-duration: 1.6s;
+    }
+  }
+  .ps-summary {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin: 18px 0 0;
+  }
+  .ps-empty {
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.6;
+    margin: 18px 0 0;
+  }
+
+  /* El tope de altura + scroll interno vive ahora en QuickView (`.quick-desktop`
+     / `.quick-mobile`), para que la cabecera `sticky` funcione y el mismo
+     comportamiento se comparta con la "Vista rápida" del artículo. */
+  .ps-results {
+    margin-top: 16px;
+  }
+</style>

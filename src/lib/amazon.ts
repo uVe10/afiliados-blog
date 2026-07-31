@@ -15,3 +15,12 @@ export function withAffiliateTag(url: string, tag: string = AMAZON_AFFILIATE_TAG
     return url;
   }
 }
+
+/**
+ * URL de la página de reseñas de un producto en Amazon.es, con el tag de
+ * afiliado ya incluido. Requiere un ASIN válido; el consumidor debe comprobar
+ * que existe antes de llamar (sin ASIN no se renderiza el botón "Ver reseñas").
+ */
+export function reviewsUrl(asin: string, tag: string = AMAZON_AFFILIATE_TAG): string {
+  return `https://www.amazon.es/product-reviews/${encodeURIComponent(asin)}?tag=${tag}`;
+}
