@@ -79,12 +79,20 @@ const items = searchProducts.map((p, i) => ({
     <p class="ps-summary" data-ps-summary hidden></p>
   </div>
 
-  <!-- Resultados: mismo componente "Vista rápida". Oculto hasta la 1ª búsqueda.
-       El scroll interno (max-height) lo aporta QuickView, así el formulario no
-       se mueve y la cabecera de la tabla queda sticky. -->
-  <div class="ps-results" data-ps-results hidden>
+  <!-- Resultados: mismo componente "Vista rápida", pero renderizado dentro de un
+       <template> INERTE en vez del DOM vivo. El contenido de un <template> es un
+       DocumentFragment fuera del árbol de render: no calcula estilo, no hace
+       layout, no carga imágenes y no cuenta en el audit "DOM Size". Así los ~657
+       nodos + 54 <img> de los 27 productos ×2 layouts no penalizan la carga
+       inicial (era la causa de la regresión de Speed Index en móvil). En la
+       primera búsqueda se clona UNA vez al contenedor visible: como se clonan
+       nodos ya renderizados en servidor, conservan su `data-astro-cid` y por
+       tanto el CSS scoped de QuickView sigue aplicando sin duplicar markup.
+       El scroll interno (max-height) lo aporta QuickView; la cabecera es sticky. -->
+  <template data-ps-template>
     <QuickView items={items} variant="A" showCategory={true} />
-  </div>
+  </template>
+  <div class="ps-results" data-ps-results hidden></div>
   <p class="ps-empty" data-ps-empty hidden>No hay resultados.</p>
 </section>
 
@@ -97,8 +105,18 @@ const items = searchProducts.map((p, i) => ({
     const spinner = root.querySelector<HTMLElement>('[data-ps-spinner]')!;
     const summary = root.querySelector<HTMLElement>('[data-ps-summary]')!;
     const submitBtn = root.querySelector<HTMLButtonElement>('[data-ps-submit]')!;
+    const template = root.querySelector<HTMLTemplateElement>('[data-ps-template]')!;
     // Filas de AMBOS layouts (tabla escritorio + tarjetas móvil) del QuickView.
-    const rows = Array.from(root.querySelectorAll<HTMLElement>('[data-ps-idx]'));
+    // Vacío hasta la 1ª búsqueda: los resultados viven en el <template> inerte
+    // y se clonan al DOM vivo bajo demanda (ver ensureResults()).
+    let rows: HTMLElement[] = [];
+
+    // Clona la plantilla al contenedor visible una sola vez. Idempotente.
+    function ensureResults() {
+      if (rows.length) return;
+      results.appendChild(template.content.cloneNode(true));
+      rows = Array.from(results.querySelectorAll<HTMLElement>('[data-ps-idx]'));
+    }
 
     const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
@@ -150,6 +168,7 @@ const items = searchProducts.map((p, i) => ({
 
       // Espera artificial de "búsqueda" (2,4 s) aunque el filtrado sea instantáneo.
       window.setTimeout(() => {
+        ensureResults(); // clona la plantilla al DOM vivo en la 1ª búsqueda
         const n = aplicarFiltros();
 
         spinner.hidden = true;

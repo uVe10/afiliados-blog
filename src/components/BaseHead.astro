@@ -110,12 +110,16 @@ const schema = article
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-<!-- Fuentes -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Fuentes: autohospedadas en /public/fonts (ver @font-face en global.css).
+     Ya no hay stylesheet ni preconnect a Google Fonts (bloqueaban el render).
+     Solo se precarga el woff2 del elemento LCP (el <h1> del hero, en Baloo 2)
+     para que el swap ocurra cuanto antes. -->
 <link
-  href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-  rel="stylesheet"
+  rel="preload"
+  href={withBase('/fonts/baloo2.woff2')}
+  as="font"
+  type="font/woff2"
+  crossorigin
 />
 
 <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
