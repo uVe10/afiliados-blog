@@ -7,6 +7,7 @@ import { imageExists } from '../lib/images';
 import { withBase } from '../lib/url';
 
 const PINTEREST = 'https://es.pinterest.com/OrganizaTuHogarOficial';
+const metodologiaHref = withBase('/metodologia');
 
 // Patrón diagonal del diseño por categoría. Si una categoría nueva no está
 // aquí, se rota una paleta de reserva para que igualmente tenga portada.
@@ -35,18 +36,19 @@ const cats = navArticles.map((art, i) => ({
 
 <BaseLayout
   title="OrganizaTuHogar — Comparativas honestas de organización del hogar"
-  description="Comparativas honestas de productos de Amazon para el hogar — analizados y filtrados por la mejor calidad y precio, sin relleno."
+  description="Analizamos y filtramos productos de Amazon España para ahorrarte tiempo: solo los que tienen las mejores reviews, ventas reales y utilidad probada. Sin relleno."
   image="/images/og-default.png"
 >
   <main class="home">
     <section class="hero">
       <h1>Organiza tu casa sin complicarte</h1>
       <p class="hero-lead">
-        Comparativas honestas de productos de Amazon para el hogar — analizados y filtrados por la mejor calidad y precio, sin relleno.
+        Analizamos y filtramos cientos de productos de Amazon para ahorrarte el tiempo: solo los que tienen las mejores reviews, ventas reales y utilidad probada.
       </p>
       <p class="hero-sub">
-        También estamos en <a href={PINTEREST} rel="noopener">Pinterest</a>, si
-        prefieres curiosear ahí primero.
+        Descubre <a href={metodologiaHref}>cómo elegimos los productos</a>. También
+        estamos en <a href={PINTEREST} rel="noopener">Pinterest</a>, si prefieres
+        curiosear ahí primero.
       </p>
     </section>
 

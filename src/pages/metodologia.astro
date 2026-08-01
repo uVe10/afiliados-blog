@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/url';
+
+const H1 = 'Cómo Elegimos los Productos';
+const homeHref = withBase('/');
+const privacidadHref = withBase('/privacidad');
+
+// Schema WebPage simple: sin precio ni valoración (misma política que BaseHead).
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const siteUrl = new URL(withBase('/'), Astro.site).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: H1,
+  description:
+    'Así elegimos los productos de OrganizaTuHogar: filtramos cientos de opciones de Amazon y solo mostramos las de mejores reviews, ventas y utilidad real.',
+  url: canonical,
+  inLanguage: 'es-ES',
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'OrganizaTuHogar',
+    url: siteUrl,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'OrganizaTuHogar',
+    url: siteUrl,
+  },
+};
+---
+
+<BaseLayout
+  title="Cómo Elegimos los Productos | OrganizaTuHogar"
+  description="Así elegimos los productos de OrganizaTuHogar: filtramos cientos de opciones de Amazon y solo mostramos las de mejores reviews, ventas y utilidad real."
+  headline={H1}
+>
+  <main class="legal">
+    <h1>{H1}</h1>
+
+    <p class="lead">
+      No mostramos cualquier producto de Amazon. Analizamos y filtramos cientos
+      de opciones para ahorrarte el tiempo de comparar tú mismo, dejando solo los
+      que superan nuestro criterio real:
+    </p>
+
+    <ul class="criterios">
+      <li><strong>Valoración mínima de 4 estrellas.</strong></li>
+      <li>
+        <strong>Volumen real de reseñas:</strong> nada de productos con apenas
+        opiniones sin garantías.
+      </li>
+      <li>
+        <strong>Demanda activa confirmada:</strong> ventas recientes reales, no
+        productos descatalogados o de nicho muerto.
+      </li>
+      <li>
+        <strong>Utilidad probada:</strong> que resuelvan un problema concreto y
+        reconocible del día a día, no solo que estén de moda.
+      </li>
+    </ul>
+
+    <p>
+      Si un producto no cumple estos criterios, no aparece en nuestras
+      comparativas, por muy popular que sea en otros sitios.
+    </p>
+    <p>
+      Nuestro trabajo es hacer el filtro por ti, para que solo tengas que elegir
+      entre opciones que ya sabemos que funcionan.
+    </p>
+
+    <h2>Transparencia sobre afiliación</h2>
+    <p>
+      OrganizaTuHogar participa en el programa de afiliados de Amazon: los enlaces
+      a productos llevan a <strong>Amazon.es</strong> y, como afiliados, obtenemos
+      ingresos por las compras que cumplen los requisitos aplicables, sin ningún
+      coste adicional para ti. Esto <strong>no influye en nuestros criterios</strong>:
+      un producto entra en nuestras comparativas por cumplir lo anterior, nunca por
+      la comisión que genere. Puedes leer más en nuestra
+      <a href={privacidadHref}>Política de Privacidad</a>.
+    </p>
+
+    <p class="back">
+      <a href={homeHref}>← Volver a la portada y ver las categorías</a>
+    </p>
+  </main>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+</BaseLayout>
+
+<style>
+  .legal {
+    padding: 48px 16px 64px;
+    max-width: 720px;
+  }
+  @media (min-width: 720px) {
+    .legal {
+      padding: 64px 48px 96px;
+    }
+  }
+  .legal h1 {
+    font-weight: 800;
+    font-size: 28px;
+    margin: 0 0 12px;
+  }
+  @media (min-width: 720px) {
+    .legal h1 {
+      font-size: 40px;
+    }
+  }
+  .legal h2 {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 32px 0 8px;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--ink-muted);
+    margin: 0 0 16px;
+  }
+  .legal p {
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0 0 12px;
+  }
+  .criterios {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
+  .criterios li {
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0 0 8px;
+  }
+  .back {
+    margin-top: 32px;
+    font-weight: 700;
+  }
+</style>
