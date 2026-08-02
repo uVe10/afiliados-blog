@@ -68,6 +68,24 @@
             "enlace_amazon": "https://www.amazon.es/Alyvisun-Soporte-Auriculares-Ganchos-Escritorio/dp/B0C1VQJZQD?dib=eyJ2IjoiMSJ9.YGqHhYL7hgy2HGUS6k3fRMbWT91IwKJiFmiUpdFpJzvFlzMyb2_rU29nRiMC9nle28uSgi9VF4TCVJVNvgEW3Wcn0jldWRahsRmNQIWMCycnBlX4qz3sFradcZr9oqneaZO29KCH_1IXr0tT8emA9AZJ0iqBETok3seVn2GaIDgiBJBaSkVQ82r81gn4p_QFTK7j7DyxGaXSop_cOeAy27A7cMt1JkOllbrOw-G1O9dA6s4FDjIcbrKdrn8xmLMBfw7EB0Rtjnq_siSMZWUs0vKxGBO8sfLEEa8ezu1WpZk.vklX75eu_AUC4SUMZ5U-mEemfjxBBivO7F-GbD-3HuY&dib_tag=se&keywords=soporte%2Borganizador%2Bauriculares%2Bcascos%2Bescritorio&qid=1785483322&sr=8-1-spons&aref=QFM1y6wl7y&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=organizatuh08-21&linkId=888c2b632b05560c56facd070d5099b8&ref_=as_li_ss_tl"
         },
         {
+            "nombre": "Lámpara de Escritorio LED Lepro (5 modos de color)",
+            "imagen": "/images/oficina/lampara-escritorio.webp",
+            "alt_text": "Lámpara LED blanca de brazo articulado iluminando un escritorio de oficina en casa con un portátil, en ambiente nocturno",
+            "precio_texto": "29,99€",
+            "precio_valor": 29.99,
+            "rating_texto": "4,6 · 4.358 valoraciones",
+            "rating_valor": 4.6,
+            "num_valoraciones": 4358,
+            "descripcion": "Una lámpara LED de 800 lúmenes con brazo articulado de dos secciones, pensada para adaptar la altura y el ángulo de iluminación a cualquier escritorio. Ofrece 5 modos de color y 5 niveles de brillo mediante control táctil, permitiendo ajustar la luz según la hora del día o el tipo de tarea (lectura, estudio, trabajo). No es solo un producto de organización, pero mejora directamente la comodidad del espacio de teletrabajo, algo que un escritorio ordenado por sí solo no resuelve.",
+            "pros": [
+                "800 lúmenes con 5 modos de color y 5 niveles de brillo",
+                "Brazo articulado, se adapta a cualquier escritorio",
+                "Control táctil, protección ocular para largas jornadas"
+            ],
+            "asin": "B08MJJN9YF",
+            "enlace_amazon": "https://www.amazon.es/Lepro-Escritorio-Regulable-Estudiar-Relajamiento/dp/B08MJJN9YF?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=18UV6RYDVPBZN&dib=eyJ2IjoiMSJ9.AhJdrZX9cDp1M-EONN3rMXEn_n9Q8Sh6tNmXIvwzv8Crl48pYxHyFvZ6tyWFZpNOLJZ0ZEjAELuTYQcu8kSsa9a9g-HhBPWIIpz8O5Nk4aTtypzArjJxGBHYkPu7KQ-eu8zfV5iOtHIZXeCaNAar6XvD6JoZZfkk4iuzV4457SC0xss7c6pEbmsP0SJNRCNBDWYmDey-vZ9y6gSEgb2wZhnxioR9nce1u2JNVUiotg61xw1Jct-lF2PLphpNVMo2zQvm4xFUCEUKGe4TRTn4UmgfeMbNw4XgcXlpcIVuv9o.v35fvWmKvTWvfyVw4f44twF6McxW8w3alooPq9I7oLE&dib_tag=se&keywords=lampara%2Bescritorio%2Bled%2Bcarga%2Binalambrica&qid=1785659825&refinements=p_72%3A831280031&rnid=831271031&sprefix=lampara%2Bescritorio%2Bled%2Bcarga%2Binalambrica%2Caps%2C95&sr=8-1-spons&aref=IsWkgvNnQ6&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=organizatuh08-21&linkId=9e5b1cd06c93b0425fb4f2a15e89082c&ref_=as_li_ss_tl"
+        },
+        {
             "nombre": "Bandeja Organizadora de Documentos Detectalia (3 niveles)",
             "imagen": "/images/oficina/bandeja-documentos.webp",
             "alt_text": "Bandeja organizadora de malla metálica negra con 3 niveles escalonados conteniendo papeles y carpetas en un escritorio de oficina en casa",
